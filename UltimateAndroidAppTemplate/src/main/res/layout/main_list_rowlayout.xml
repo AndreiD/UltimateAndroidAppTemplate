@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/row_main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:textColor="#7c5406">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_gravity="center_vertical">
+            <TextView
+                android:id="@+id/textView_main_song_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="2"
+                android:textColor="#222"
+                android:textSize="24sp"
+                android:gravity="left" android:lines="1" android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" android:layout_marginTop="3dp"/>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp" android:layout_marginBottom="5dp">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:id="@+id/textView_duration"
+                        android:textSize="14sp" android:gravity="center" android:layout_gravity="center_vertical"
+                        android:layout_margin="3dp" android:textColor="#333"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:id="@+id/textView_bitrate" android:textColor="#333" android:textSize="14sp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center" android:layout_margin="3dp"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:id="@+id/textView_genere" android:textColor="#333" android:textSize="14sp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center" android:layout_margin="3dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
