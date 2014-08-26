@@ -1,4 +1,4 @@
-UltimateAndroidAppTemplate
+Ultimate Android App Template
 ==========================
 
 ![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2014-08-25-125839.png?raw=true "Screenshot")
