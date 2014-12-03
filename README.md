@@ -20,7 +20,9 @@ Ultimate android app template
     *      }
 
 ![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2014-12-03-140754.png?raw=true "Screenshot")
+
 ![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2014-12-03-140802.png?raw=true "Screenshot")
+
 ![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2014-12-03-140811.png?raw=true "Screenshot")
 
 
@@ -32,7 +34,7 @@ Ultimate android app template
 - Menu with everything you need
 - A nice library with (maybe) useful stuff like checking free memory, setting custom font for all the activity etc. etc.
 
-Build with IntelliJStudio
+Build with Android Studio
 
 
 

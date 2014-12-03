@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,21 +27,10 @@ public class FragmentGraph extends Fragment {
     private FrameLayout FrameLayout_Graph;
     private GraphViewSeries graphSeries;
     private SharedPreferences prefs;
-    private String offline_data = "";
-    private final Handler mHandler = new Handler();
-    private Runnable mTimer1;
-    private Runnable mTimer2;
-    private GraphView graphView;
-    private GraphViewSeries exampleSeries1;
-    private GraphViewSeries exampleSeries2;
-    private double graph2LastXValue = 5d;
-    private GraphViewSeries exampleSeries3;
 
-    private double getRandom() {
-        double high = 3;
-        double low = 0.5;
-        return Math.random() * (high - low) + low;
-    }
+    private final Handler mHandler = new Handler();
+    private Runnable mTimer2;
+    private double graph2LastXValue = 5d;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup containter,
@@ -61,9 +49,9 @@ public class FragmentGraph extends Fragment {
 
         GraphView graphView = new LineGraphView(
                 mContext
-                , "" // heading
+                , "Real Time Graph" // heading
         );
-        graphSeries = new GraphViewSeries("My Graph", seriesStyle, new GraphView.GraphViewData[]{
+        graphSeries = new GraphViewSeries("Random Numbers", seriesStyle, new GraphView.GraphViewData[]{
                 new GraphView.GraphViewData(0, 0d)
         });
 
