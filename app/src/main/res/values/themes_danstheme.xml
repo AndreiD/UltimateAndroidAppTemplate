@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="DansTheme" parent="@style/_DansTheme"/>
+
+  <style name="_DansTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    <item name="android:editTextStyle">@style/EditTextDansTheme</item>
+
+    <item name="android:textColorHighlight">#99c20000</item>
+
+    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewDansTheme</item>
+
+    <item name="android:checkboxStyle">@style/CheckBoxDansTheme</item>
+
+    <item name="android:radioButtonStyle">@style/RadioButtonDansTheme</item>
+
+    <item name="android:buttonStyle">@style/ButtonDansTheme</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonDansTheme</item>
+
+    <item name="android:spinnerStyle">@style/SpinnerDansTheme</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemDansTheme</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarDansTheme</item>
+
+    <item name="android:seekBarStyle">@style/SeekBarDansTheme</item>
+
+    <item name="android:ratingBarStyle">@style/RatingBarDansTheme</item>
+
+    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigDansTheme</item>
+
+    <item name="android:ratingBarStyleSmall">@style/RatingBarSmallDansTheme</item>
+
+    <item name="android:buttonStyleToggle">@style/ToggleDansTheme</item>
+
+    <item name="android:listViewStyle">@style/ListViewDansTheme</item>
+
+    <item name="android:listViewWhiteStyle">@style/ListViewDansTheme.White</item>
+
+    <item name="android:spinnerItemStyle">@style/SpinnerItemDansTheme</item>
+
+  </style>
+
+</resources>

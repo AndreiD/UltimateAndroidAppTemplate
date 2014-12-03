@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set android:interpolator="@android:anim/decelerate_interpolator" android:startOffset="600"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <alpha android:interpolator="@android:anim/accelerate_interpolator" android:duration="2000" android:fromAlpha="0.1" android:toAlpha="1.0"
+      xmlns:android="http://schemas.android.com/apk/res/android" /> -->
+<scale android:duration="1000" android:pivotX="0.0%" android:pivotY="100.0%" android:fillBefore="true" android:startOffset="0" android:fromXScale="0.2" android:toXScale="1.0" android:fromYScale="0.2" android:toYScale="1.0" />
+</set>

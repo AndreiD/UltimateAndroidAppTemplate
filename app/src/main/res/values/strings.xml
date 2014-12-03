@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Template</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_add_new_symol">Add</string>
+    <string name="first_time_requires_internet">Internet is required first time you run this app.</string>
+    <string name="action_exit">Exit</string>
+
+</resources>

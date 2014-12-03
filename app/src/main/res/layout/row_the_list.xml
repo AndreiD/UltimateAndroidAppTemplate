@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Symbol"
+        android:id="@+id/textView_symbol"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bid"
+            android:id="@+id/textView_bid"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView_bid_direction"
+            android:src="@drawable/ic_up"
+            android:layout_gravity="center_vertical" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sell"
+            android:id="@+id/button_sell"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/button_clean_no_border_1"
+            android:layout_margin="5dp"
+            android:textColor="#FFF"
+            android:longClickable="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/linearLayout"
+        android:layout_weight="4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ask"
+            android:id="@+id/textView_ask"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView_ask_direction"
+            android:src="@drawable/ic_down"
+            android:layout_gravity="center_vertical" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buy"
+            android:id="@+id/button_buy"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/button_clean_no_border_1"
+            android:layout_margin="5dp"
+            android:textColor="#FFF"
+            android:longClickable="false" />
+    </LinearLayout>
+
+</LinearLayout>

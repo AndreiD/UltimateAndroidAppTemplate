@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/listview_dan"
+        android:divider="@color/light_gray"
+        android:dividerHeight="0.5dp"
+        android:layout_width="fill_parent"
+        style="@style/MyLList"
+        android:layout_height="fill_parent"
+        android:drawSelectorOnTop="false" />
+</RelativeLayout>

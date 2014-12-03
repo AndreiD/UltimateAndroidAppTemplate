@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="AutoCompleteTextViewDansTheme" parent="android:Widget.Holo.Light.AutoCompleteTextView">
+      <item name="android:dropDownSelector">@drawable/danstheme_list_selector_holo_light</item>
+	    <item name="android:background">@drawable/danstheme_edit_text_holo_light</item>
+  </style>
+
+  <style name="ButtonDansTheme" parent="android:Widget.Holo.Light.Button">
+	  <item name="android:background">@drawable/danstheme_btn_default_holo_light</item>
+  </style>
+
+  <style name="ImageButtonDansTheme" parent="android:Widget.Holo.Light.ImageButton">
+	  <item name="android:background">@drawable/danstheme_btn_default_holo_light</item>
+  </style>
+
+  <style name="SpinnerDansTheme" parent="android:Widget.Holo.Light.Spinner">
+      <item name="android:background">@drawable/danstheme_spinner_background_holo_light</item>
+      <item name="android:dropDownSelector">@drawable/danstheme_list_selector_holo_light</item>
+  </style>
+
+  <style name="ProgressBarDansTheme" parent="android:Widget.Holo.Light.ProgressBar.Horizontal">
+      <item name="android:progressDrawable">@drawable/danstheme_progress_horizontal_holo_light</item>
+      <item name="android:indeterminateDrawable">@drawable/danstheme_progress_indeterminate_horizontal_holo_light</item>
+  </style>
+
+  <style name="SeekBarDansTheme" parent="android:Widget.Holo.Light.SeekBar">
+      <item name="android:progressDrawable">@drawable/danstheme_scrubber_progress_horizontal_holo_light</item>
+      <item name="android:indeterminateDrawable">@drawable/danstheme_scrubber_progress_horizontal_holo_light</item>
+      <item name="android:thumb">@drawable/danstheme_scrubber_control_selector_holo_light</item>
+  </style>
+
+  <style name="RatingBarDansTheme" parent="android:Widget.Holo.Light.RatingBar">
+      <item name="android:progressDrawable">@drawable/danstheme_ratingbar_full_holo_light</item>
+      <item name="android:indeterminateDrawable">@drawable/danstheme_ratingbar_full_holo_light</item>
+  </style>
+
+  <style name="RatingBarBigDansTheme" parent="android:Widget.Holo.Light.RatingBar.Indicator">
+      <item name="android:progressDrawable">@drawable/danstheme_ratingbar_holo_light</item>
+      <item name="android:indeterminateDrawable">@drawable/danstheme_ratingbar_holo_light</item>
+  </style>
+
+  <style name="RatingBarSmallDansTheme" parent="android:Widget.Holo.Light.RatingBar.Small">
+      <item name="android:progressDrawable">@drawable/danstheme_ratingbar_small_holo_light</item>
+      <item name="android:indeterminateDrawable">@drawable/danstheme_ratingbar_small_holo_light</item>
+  </style>
+
+  <style name="ToggleDansTheme" parent="android:Widget.Holo.Light.Button.Toggle">
+      <item name="android:background">@drawable/danstheme_btn_toggle_holo_light</item>
+  </style>
+
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set android:interpolator="@android:anim/decelerate_interpolator"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <rotate android:duration="2000" android:fromDegrees="90.0" android:toDegrees="0.0" android:pivotX="41.999996%" android:pivotY="38.0%" android:fillBefore="true" android:startOffset="0" android:toYScale="0.0" />
+    <scale android:duration="1000" android:pivotX="41.999996%" android:pivotY="38.0%" android:fillBefore="true" android:fillAfter="true" android:startOffset="0" android:fromXScale="0.0" android:toXScale="1.0" android:fromYScale="0.0" android:toYScale="1.0" />
+</set>

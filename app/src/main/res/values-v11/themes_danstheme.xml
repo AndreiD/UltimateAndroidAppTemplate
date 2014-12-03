@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="DansTheme" parent="@style/_DansTheme"/>
+
+  <style name="_DansTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    <item name="android:editTextBackground">@drawable/danstheme_edit_text_holo_light</item>
+
+    <item name="android:textColorHighlight">#99c20000</item>
+    <item name="android:textSelectHandleLeft">@drawable/danstheme_text_select_handle_left</item>
+    <item name="android:textSelectHandleRight">@drawable/danstheme_text_select_handle_right</item>
+    <item name="android:textSelectHandle">@drawable/danstheme_text_select_handle_middle</item>
+
+    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewDansTheme</item>
+
+    <item name="android:listChoiceIndicatorMultiple">@drawable/danstheme_btn_check_holo_light</item>
+
+    <item name="android:listChoiceIndicatorSingle">@drawable/danstheme_btn_radio_holo_light</item>
+
+    <item name="android:buttonStyle">@style/ButtonDansTheme</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonDansTheme</item>
+
+    <item name="android:dropDownSpinnerStyle">@style/SpinnerDansTheme</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarDansTheme</item>
+
+    <item name="android:seekBarStyle">@style/SeekBarDansTheme</item>
+
+    <item name="android:ratingBarStyle">@style/RatingBarDansTheme</item>
+
+    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigDansTheme</item>
+
+    <item name="android:ratingBarStyleSmall">@style/RatingBarSmallDansTheme</item>
+
+    <item name="android:buttonStyleToggle">@style/ToggleDansTheme</item>
+
+    <item name="android:listChoiceBackgroundIndicator">@drawable/danstheme_list_selector_holo_light</item>
+
+    <item name="android:activatedBackgroundIndicator">@drawable/danstheme_activated_background_holo_light</item>
+
+    <item name="android:fastScrollThumbDrawable">@drawable/danstheme_fastscroll_thumb_holo</item>
+
+  </style>
+
+</resources>
