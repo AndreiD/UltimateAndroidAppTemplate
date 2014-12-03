@@ -1,9 +1,6 @@
 Ultimate Android App Template
 ==========================
 
-![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2014-12-03-140754.png?raw=true "Screenshot")
-![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2014-12-03-140802.png?raw=true "Screenshot")
-![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2014-12-03-140811.png?raw=true "Screenshot")
 
 Ultimate android app template
 
@@ -21,6 +18,12 @@ Ultimate android app template
     *          // exclusion is not neccessary, but generally a good idea.
     *          exclude group: 'com.google.android', module: 'support-v4'
     *      }
+
+![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2014-12-03-140754.png?raw=true "Screenshot")
+![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2014-12-03-140802.png?raw=true "Screenshot")
+![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2014-12-03-140811.png?raw=true "Screenshot")
+
+
 
 - Splash Screen with getting files
 - A custom listview and an edit text that filters the listview each time a character is written
