@@ -2,6 +2,7 @@ package com.andrei.template;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.andrei.template.utils.CroutonStyles;
 import com.astuetz.PagerSlidingTabStrip;
 import com.andrei.template.utils.AsyncHttp.RequestHandler;
 import com.andrei.template.utils.AsyncHttp.RequestListener;
@@ -23,6 +25,9 @@ import com.andrei.template.utils.DUtils;
 import org.apache.http.Header;
 
 import java.io.UnsupportedEncodingException;
+
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -70,7 +75,7 @@ public class MainActivity extends ActionBarActivity {
                 alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String value = input.getText().toString().trim();
-                        Toast.makeText(getApplicationContext(), "Not done..."+ value, Toast.LENGTH_SHORT).show();
+                        Crouton.makeText(mContext,"Not done yet...", CroutonStyles.RED).show();
                     }
                 });
 
@@ -85,6 +90,17 @@ public class MainActivity extends ActionBarActivity {
 
             case R.id.action_exit:
                 finish();
+                break;
+
+            case R.id.action_feedback:
+
+                Crouton.makeText(mContext,"Thank you for the feedback", CroutonStyles.BLUE).show();
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("plain/text");
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "your_email@gmail.com" });
+                intent.putExtra(Intent.EXTRA_SUBJECT, "App Feedback");
+                startActivity(intent);
+
                 break;
 
 

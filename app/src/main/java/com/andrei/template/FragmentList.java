@@ -34,7 +34,7 @@ public class FragmentList extends Fragment implements AdapterView.OnItemClickLis
     private String offline_data;
     private TheListAdapter adapter;
     private ListView listview_dan;
-    private MyCountdown myCountdown = new MyCountdown(500,500);
+    private MyCountdown myCountdown = new MyCountdown(5000,5000);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup containter,

@@ -15,7 +15,10 @@ import android.widget.FrameLayout;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphViewSeries;
+import com.jjoe64.graphview.GraphViewStyle;
 import com.jjoe64.graphview.LineGraphView;
+
+import java.util.Random;
 
 
 public class FragmentGraph extends Fragment {
@@ -52,27 +55,30 @@ public class FragmentGraph extends Fragment {
         prefs = mContext.getSharedPreferences("PREFS", 0);
 
 
-
         GraphViewSeries.GraphViewSeriesStyle seriesStyle = new GraphViewSeries.GraphViewSeriesStyle();
-        seriesStyle.color = Color.parseColor("#ade4b5");
-        seriesStyle.thickness = 2;
+        seriesStyle.color = Color.parseColor(getString(R.color.danstheme_color));
+        seriesStyle.thickness = 5;
 
-        exampleSeries2 = new GraphViewSeries("Series 1",seriesStyle,new GraphView.GraphViewData[] {
-
+        GraphView graphView = new LineGraphView(
+                mContext
+                , "" // heading
+        );
+        graphSeries = new GraphViewSeries("My Graph", seriesStyle, new GraphView.GraphViewData[]{
+                new GraphView.GraphViewData(0, 0d)
         });
 
+        graphView.setScrollable(true);
+        graphView.setViewPort(2, 100);
+        graphView.setScalable(true);
 
 
-            graphView = new LineGraphView (
-                    getActivity()
-                    , "Real Time Graph (Random Numbers)"
-            );
+        graphView.getGraphViewStyle().setGridColor(Color.parseColor("#444444"));
+
+        graphView.getGraphViewStyle().setNumHorizontalLabels(5);
 
 
-        graphView.addSeries(exampleSeries2);
-
-
-
+        graphView.getGraphViewStyle().setGridStyle(GraphViewStyle.GridStyle.BOTH);
+        graphView.addSeries(graphSeries); // data
 
 
 
@@ -104,16 +110,27 @@ public class FragmentGraph extends Fragment {
         mTimer2 = new Runnable() {
             @Override
             public void run() {
+
                 graph2LastXValue += 1d;
-                try {
-                    exampleSeries2.appendData(new GraphView.GraphViewData(graph2LastXValue, getRandom()), true, 50);
-                }catch (Exception ex) {
-                    Log.e("exception", "ex");
-                }
-                mHandler.postDelayed(this, 800);
+                Random rand = new Random();
+                int rand_nr = rand.nextInt(20);
+                graphSeries.appendData(new GraphView.GraphViewData(graph2LastXValue,rand_nr), true, 150);
+                mHandler.postDelayed(this, 100);
             }
         };
-        mHandler.postDelayed(mTimer2, 1000);
+        mHandler.postDelayed(mTimer2, 100);
+    }
+
+
+    public float[] lowPass( float[] input, float[] output ) {
+        if ( output == null ) return input;
+
+        float ALPHA = 0.15f;
+
+        for ( int i=0; i<input.length; i++ ) {
+            output[i] = output[i] + ALPHA * (input[i] - output[i]);
+        }
+        return output;
     }
 }
 

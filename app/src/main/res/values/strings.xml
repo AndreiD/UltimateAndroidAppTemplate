@@ -7,5 +7,6 @@
     <string name="action_add_new_symol">Add</string>
     <string name="first_time_requires_internet">Internet is required first time you run this app.</string>
     <string name="action_exit">Exit</string>
+    <string name="action_feedback">Feedback</string>
 
 </resources>

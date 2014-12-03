@@ -4,9 +4,13 @@
 
     <item android:id="@+id/action_add_new_symbol"
         android:title="@string/action_add_new_symol"
-        android:icon="@android:drawable/ic_input_add"
         android:orderInCategory="1"
         android:showAsAction="ifRoom|withText" />
+
+    <item android:id="@+id/action_feedback"
+        android:title="@string/action_feedback"
+        android:orderInCategory="99"
+        android:showAsAction="never" />
 
     <item android:id="@+id/action_exit"
         android:title="@string/action_exit"

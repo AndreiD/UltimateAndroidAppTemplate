@@ -7,6 +7,7 @@
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_margin="20dp"
         android:id="@+id/FrameLayout_Graph"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"></FrameLayout>
