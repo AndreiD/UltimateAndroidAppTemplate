@@ -19,7 +19,6 @@ A simple app template. Nothing fancy. Material Design in red accents.
     }
 ~~~~
 
-![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2015-03-24-140402.png?raw=true "Screenshot")
 
 - Retrofit API
 - Info page with contact by email for feedback / Settings Page with some dummy settings
