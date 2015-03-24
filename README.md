@@ -1,7 +1,7 @@
 Ultimate Android App Template
 ==========================
 
-A simple app template. Nothing fancy.
+A simple app template. Nothing fancy. Material Design in red accents.
 
 #### What it contains:
 
