@@ -4,9 +4,9 @@
     <string name="app_name">Template</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="action_add_new_symol">Add</string>
-    <string name="first_time_requires_internet">Internet is required first time you run this app.</string>
     <string name="action_exit">Exit</string>
     <string name="action_feedback">Feedback</string>
+    <string name="retry">Retry</string>
+    <string name="internet_is_required_to_run_this_app">Internet is required to run this app</string>
 
 </resources>

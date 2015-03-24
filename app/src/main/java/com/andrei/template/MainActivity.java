@@ -3,7 +3,6 @@ package com.andrei.template;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,20 +13,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.Toast;
 
+import com.andrei.template.fragments.FragmentOne;
+import com.andrei.template.fragments.FragmentThree;
+import com.andrei.template.fragments.FragmentTwo;
 import com.andrei.template.utils.CroutonStyles;
 import com.astuetz.PagerSlidingTabStrip;
-import com.andrei.template.utils.AsyncHttp.RequestHandler;
-import com.andrei.template.utils.AsyncHttp.RequestListener;
-import com.andrei.template.utils.DUtils;
-
-import org.apache.http.Header;
-
-import java.io.UnsupportedEncodingException;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -68,26 +61,6 @@ public class MainActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.action_add_new_symbol:
-                final AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
-                final EditText input = new EditText(this);
-                alert.setView(input);
-                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        String value = input.getText().toString().trim();
-                        Crouton.makeText(mContext,"Not done yet...", CroutonStyles.RED).show();
-                    }
-                });
-
-                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        dialog.cancel();
-                    }
-                });
-                alert.setTitle("Add new symbol");
-                alert.show();
-                break;
-
             case R.id.action_exit:
                 finish();
                 break;
@@ -138,10 +111,10 @@ public class MainActivity extends ActionBarActivity {
                 fragment = new FragmentOne();
             }
             if (position == 1) {
-                fragment = new FragmentList();
+                fragment = new FragmentTwo();
             }
             if (position == 2) {
-                fragment = new FragmentGraph();
+                fragment = new FragmentThree();
             }
             return fragment;
         }
