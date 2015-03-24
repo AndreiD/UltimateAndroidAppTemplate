@@ -3,8 +3,9 @@ Ultimate Android App Template
 
 A simple app template. Nothing fancy.
 
-<h1>What it contains:</h1>
+#### What it contains:
 
+~~~~
     compile 'com.android.support:appcompat-v7:21.0.0'
     compile 'com.android.support:support-v4:21.+'
 
@@ -16,10 +17,9 @@ A simple app template. Nothing fancy.
     compile('de.keyboardsurfer.android.widget:crouton:1.8.5@aar') {
         exclude group: 'com.google.android', module: 'support-v4'
     }
+~~~~
 
-![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2015-03-24-140402.png.png?raw=true "Screenshot")
-
-
+![screenshot](https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/device-2015-03-24-140402.png?raw=true "Screenshot")
 
 - Retrofit API
 - Info page with contact by email for feedback / Settings Page with some dummy settings
