@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/action_settings">
+        <CheckBoxPreference
+            android:title="@string/enable_notifications"
+            android:defaultValue="true"
+            android:key="prefNotifications" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/perf_profile">
+
+
+
+        <EditTextPreference
+            android:title="@string/first_name"
+            android:inputType="textPersonName"
+            android:key="prefFirstName" />
+
+
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
