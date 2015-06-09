@@ -3,6 +3,7 @@ package com.andrei.template.utils;
 import android.graphics.Color;
 import android.view.Gravity;
 
+
 import com.andrei.template.R;
 
 import de.keyboardsurfer.android.widget.crouton.Configuration;

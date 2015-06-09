@@ -1,36 +1,34 @@
-package com.andrei.template;
+package com.andrei.template.activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
+import com.andrei.template.MyBaseActivity;
+import com.andrei.template.R;
 import com.andrei.template.utils.DUtils;
 
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 
-public class SplashActivity extends Activity {
 
-    private ImageView imageView_logo;
+public class SplashActivity extends RoboActivity {
+
+    @InjectView(R.id.imageView_logo)
+    ImageView imageView_logo;
     private SplashActivity mContext;
 
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_splash);
-        imageView_logo = (ImageView) findViewById(R.id.imageView_logo);
 
         mContext = SplashActivity.this;
         app_requires_internet_checker();
@@ -65,7 +63,7 @@ public class SplashActivity extends Activity {
             //------ nice animation. Here you should load something from a webservice etc. etc. or something else time taking...
             Animation fadeOut = new AlphaAnimation(1, 0);
             fadeOut.setInterpolator(new AccelerateInterpolator());
-            fadeOut.setDuration(300);
+            fadeOut.setDuration(1000);
             imageView_logo.startAnimation(fadeOut);
             fadeOut.setAnimationListener(new Animation.AnimationListener() {
                 @Override

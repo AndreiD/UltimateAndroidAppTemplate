@@ -8,5 +8,11 @@
     <string name="action_feedback">Feedback</string>
     <string name="retry">Retry</string>
     <string name="internet_is_required_to_run_this_app">Internet is required to run this app</string>
+    <string name="enable_notifications">Enable Notifications</string>
+    <string name="perf_profile">Your Profile</string>
+    <string name="first_name">First Name</string>
+    <string name="options">Options</string>
+    <string name="share">Share</string>
+    <string name="settings_saved">Settings saved</string>
 
 </resources>
