@@ -1,7 +1,8 @@
 Ultimate Android App Template 2
 ==========================
 
-A simple app template. Nothing fancy. Material Design in red accents.
+### A simple app template. Nothing fancy. Material Design in red accents.
+
 
 ![alt text](https://github.com/AndreiD/UltimateAndroidAppTemplate/blob/master/app/device-2015-10-22-191003.png "How the app looks 1")
 
