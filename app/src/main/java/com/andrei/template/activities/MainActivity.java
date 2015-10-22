@@ -2,29 +2,33 @@ package com.andrei.template.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.andrei.template.MyBaseActivity;
 import com.andrei.template.R;
-import com.andrei.template.utils.CroutonStyles;
-import com.squareup.picasso.Picasso;
+import com.andrei.template.fragments.ApiDemoFragment;
+import com.andrei.template.fragments.ApiDemoFragment_;
+import com.andrei.template.fragments.RecyclerDemoFragment;
+import com.andrei.template.fragments.RecyclerDemoFragment_;
+import com.andrei.template.utils.DUtils;
 
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import roboguice.inject.InjectView;
-import roboguice.util.Ln;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.OptionsItem;
+import org.androidannotations.annotations.OptionsMenu;
+import org.androidannotations.annotations.ViewById;
 
 
+@EActivity(R.layout.activity_main)
+@OptionsMenu(R.menu.main)
 public class MainActivity extends MyBaseActivity {
 
-    @InjectView(R.id.textView_main) TextView textView_main;
-    @InjectView(R.id.button_main) Button button_main;
-    @InjectView(R.id.imageView_main) ImageView imageView_main;
+
+    @ViewById Button button_recycler;
+    @ViewById Button button_api;
 
 
     private MainActivity mContext;
@@ -33,61 +37,47 @@ public class MainActivity extends MyBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
         mContext = MainActivity.this;
 
 
-        button_main.setOnClickListener(button_main_clicked());
-
-
-    }
-
-    private View.OnClickListener button_main_clicked() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Ln.i("Button main pressed");
-                Picasso.with(mContext).load("http://i.imgur.com/DvpvklR.png")
-                        .placeholder(R.drawable.ic_launcher)
-                        .error(android.R.drawable.ic_dialog_alert)
-                        .into(imageView_main);
-            }
-        };
     }
 
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
-        return true;
+    @Click(R.id.button_api) void api_clicked() {
+
+        ApiDemoFragment r_fragment = ApiDemoFragment_.builder()
+                .build();
+        getFragmentManager().beginTransaction().replace(android.R.id.content, r_fragment).addToBackStack(null).commit();
     }
 
-    public boolean onOptionsItemSelected(MenuItem item) {
+    @Click(R.id.button_recycler) void recycler_btn_clicked() {
+        Log.i("MainActivity", "Button button_recycler pressed");
 
-        switch (item.getItemId()) {
-
-            case R.id.action_settings:
-                startActivity(new Intent(mContext, SettingsActivity.class));
-                break;
-
-            case R.id.action_exit:
-                finish();
-                break;
-
-            case R.id.action_feedback:
-
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("plain/text");
-                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"your_email@gmail.com"});
-                intent.putExtra(Intent.EXTRA_SUBJECT, "App Feedback");
-                startActivity(intent);
-
-                break;
+        RecyclerDemoFragment r_fragment = RecyclerDemoFragment_.builder()
+                .build();
+        getFragmentManager().beginTransaction().replace(android.R.id.content, r_fragment).addToBackStack(null).commit();
 
 
-        }
-        return false;
+        //------- show a nice toast message ---------
+        DUtils.inform(mContext, "Loading Images...", R.color.white);
+    }
+
+
+    @OptionsItem(R.id.action_settings) void menu_settings() {
+        getFragmentManager().beginTransaction().replace(android.R.id.content,
+                new SettingsPreferenceFragment()).addToBackStack("settings").commit();
+    }
+
+    @OptionsItem(R.id.action_exit) void menu_exit() {
+        finish();
+    }
+
+    @OptionsItem(R.id.action_feedback) void menu_feedback() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("plain/text");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"your_email@gmail.com"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "App Feedback");
+        startActivity(intent);
     }
 
 
@@ -101,6 +91,14 @@ public class MainActivity extends MyBaseActivity {
         super.onDestroy();
     }
 
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
 
 }
 

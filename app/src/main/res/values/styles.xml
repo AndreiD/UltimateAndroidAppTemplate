@@ -7,8 +7,8 @@
         <item name="colorPrimaryDark">#500000</item>
         <item name="colorPrimary">#800000</item>
 
-        <item name="colorAccent">@color/app_color_5</item>
-        <item name="colorControlActivated">@color/app_color_4</item>
+        <item name="colorAccent">@color/light</item>
+        <item name="colorControlActivated">@color/primaryDark</item>
         <item name="colorControlNormal">@color/red_dark</item>
         <item name="colorControlHighlight">@color/red_light</item>
 
@@ -24,6 +24,13 @@
 
     </style>
 
+
+    <style name="FullScreen" parent="@style/Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
 
 
     <style name="CustomDialogTheme" parent="@android:style/Theme.Translucent">

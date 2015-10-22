@@ -14,13 +14,9 @@ import com.andrei.template.MyBaseActivity;
 import com.andrei.template.R;
 import com.andrei.template.utils.DUtils;
 
-import roboguice.activity.RoboActivity;
-import roboguice.inject.InjectView;
 
+public class SplashActivity extends MyBaseActivity {
 
-public class SplashActivity extends RoboActivity {
-
-    @InjectView(R.id.imageView_logo)
     ImageView imageView_logo;
     private SplashActivity mContext;
 
@@ -30,7 +26,9 @@ public class SplashActivity extends RoboActivity {
 
         setContentView(R.layout.activity_splash);
 
+        imageView_logo = (ImageView) findViewById(R.id.imageView_logo);
         mContext = SplashActivity.this;
+
         app_requires_internet_checker();
 
     }
@@ -73,8 +71,8 @@ public class SplashActivity extends RoboActivity {
                 @Override
                 public void onAnimationEnd(Animation animation) {
                     imageView_logo.setVisibility(View.INVISIBLE);
-                    Intent intent = new Intent(mContext, MainActivity.class);
-                    startActivity(intent);
+                    startActivity(new Intent(mContext,MainActivity_.class));
+                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                 }
 
                 @Override

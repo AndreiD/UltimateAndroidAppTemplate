@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/action_settings">
-        <CheckBoxPreference
-            android:title="@string/enable_notifications"
-            android:defaultValue="true"
-            android:key="prefNotifications" />
+
+    <PreferenceCategory
+        android:title="@string/settings">
+
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="prefs_notifications"
+            android:title="Enable Notifications"/>
+
+
+        <Preference
+            android:key="@string/send_feedback"
+            android:summary="We appreciate your feedback. What did you like or dislike ?"
+            android:title="Send Feedback"/>
+
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/perf_profile">
+    <PreferenceCategory
+        android:title="@string/about">
+        <Preference
+            android:key="version"
+            android:summary="@string/version"
+            android:title="Version"/>
 
-
-
-        <EditTextPreference
-            android:title="@string/first_name"
-            android:inputType="textPersonName"
-            android:key="prefFirstName" />
-
-
+        <Preference
+            android:key="copyright"
+            android:summary="RScanner © 2015. All rights reserved."
+            android:title="Copyright"/>
 
     </PreferenceCategory>
 

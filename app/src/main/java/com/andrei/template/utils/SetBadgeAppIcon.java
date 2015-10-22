@@ -7,6 +7,8 @@ import android.content.pm.ResolveInfo;
 
 import java.util.List;
 
+
+// Set badges ... facebook/twitter style. Works on Samsung, don't know about the rest....
 public class SetBadgeAppIcon {
 
     public static void setBadge(Context context, int count) {

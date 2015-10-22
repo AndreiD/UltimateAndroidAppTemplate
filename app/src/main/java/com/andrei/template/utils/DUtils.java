@@ -23,8 +23,10 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -32,12 +34,14 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-import com.bgmenu.android.R;
-import com.google.android.gms.maps.model.LatLng;
-import com.squareup.picasso.Picasso;
+import android.widget.TextView;
+
+import com.andrei.template.R;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -65,24 +69,33 @@ import java.util.regex.Pattern;
 
 import javax.security.auth.x500.X500Principal;
 
-import roboguice.util.Ln;
 
 public class DUtils {
 
 
-    private static String PREFS_NAME = "PREFERENCES";
-
-
     public static void caveman(Object message) {
         if (message != null) {
-            Ln.e("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦");
-            Ln.v(String.valueOf(message));
-            Ln.e("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦");
+            Log.e("♦♦♦", "♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦");
+            Log.v("♦♦♦", String.valueOf(message));
+            Log.e("♦♦♦", "♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦");
         } else {
-            Ln.e("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦");
-            Ln.v("NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL");
-            Ln.e("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦");
+            Log.e("♦♦♦", "♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦");
+            Log.v("♦♦♦", "NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL ♦ NULL");
+            Log.e("♦♦♦", "♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦");
         }
+    }
+
+
+    public static void inform(Activity mView, String string, int text_color) {
+        Snackbar snack = Snackbar.make(mView.findViewById(android.R.id.content), string, Snackbar.LENGTH_LONG);
+        View view = snack.getView();
+        TextView tv = (TextView) view.findViewById(android.support.design.R.id.snackbar_text);
+        tv.setTextColor(mView.getResources().getColor(text_color));
+
+        //change background color too ?
+        view.setBackgroundColor(mView.getResources().getColor(R.color.primaryDark));
+
+        snack.show();
     }
 
 
@@ -106,63 +119,6 @@ public class DUtils {
         activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
-    public static String getStreetCityName(Context ctx, LatLng location) {
-        Geocoder geoCoder = new Geocoder(ctx, Locale.getDefault());
-        int maxResults = 5;
-        try {
-            List<Address> addresses = geoCoder.getFromLocation(
-                    (location.latitude),
-                    (location.longitude), maxResults);
-            String street = "";
-            String city = "";
-            if (addresses.size() > 0) {
-                street = addresses.get(0).getAddressLine(0);
-                city = addresses.get(0).getLocality();
-                addresses.clear();
-                return street + ", " + city;
-            } else {
-                try {
-                    addresses = ReverseGeocode.getFromLocation(
-                            (location.latitude),
-                            (location.longitude), maxResults);
-                    if (addresses != null && addresses.size() > 0) {
-                        street = addresses.get(0).getAddressLine(0);
-                        city = addresses.get(0).getLocality();
-                        return street + ", " + city;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
-
-        return "";
-    }
-
-
-    public static Address getAddressFromLatLng(Context ctx, LatLng location) {
-        Geocoder geoCoder = new Geocoder(ctx, Locale.getDefault());
-        int maxResults = 1;
-        try {
-            List<Address> addresses = geoCoder.getFromLocation(
-                    (location.latitude),
-                    (location.longitude), maxResults);
-
-            if (addresses != null) {
-                return addresses.get(0);
-            } else {
-                return null;
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     public static boolean isValidPhoneNumber(String phoneNumber) {
         String regex = "^07[0-9]{8}$";
@@ -199,86 +155,6 @@ public class DUtils {
     }
 
 
-    // Rate my app
-    public static void setNumberOfFinishedOrders(Context appContext, int nr) {
-        if (appContext instanceof Context) {
-            SharedPreferences settings = appContext.getSharedPreferences(
-                    PREFS_NAME, Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("FINISHED_ORDERS_COUNT", nr);
-            editor.commit();
-        }
-    }
-
-    public static int getNumberOfFinishedOrders(Context appContext) {
-        if (appContext instanceof Context) {
-            SharedPreferences settings = appContext.getSharedPreferences(
-                    PREFS_NAME, Context.MODE_PRIVATE);
-            return settings.getInt("FINISHED_ORDERS_COUNT", 0);
-        }
-        return 0;
-    }
-
-    // 0 - Pot sa-i arat, 1 - A apasat pe rate, 2 - A dat don't bother me again
-    public static void setRateAppResponse(Context appContext, int response) {
-        if (appContext instanceof Context) {
-            SharedPreferences settings = appContext.getSharedPreferences(
-                    PREFS_NAME, Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("RATE_APP_RESPONSE", response);
-            editor.commit();
-        }
-    }
-
-    public static int getRateAppResponse(Context appContext) {
-        if (appContext instanceof Context) {
-            SharedPreferences settings = appContext.getSharedPreferences(
-                    PREFS_NAME, Context.MODE_PRIVATE);
-            return settings.getInt("RATE_APP_RESPONSE", 0);
-        }
-        return 0;
-    }
-
-    // 1 - Arata, 0 - Nu arata - -1 - Nu mai arata EVER
-    public static void setShowRateApp(Context appContext, int show) {
-        if (appContext instanceof Context) {
-            SharedPreferences settings = appContext.getSharedPreferences(
-                    PREFS_NAME, Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("SHOW_RATE_APP", show);
-            editor.commit();
-        }
-    }
-
-    public static int getShowRateApp(Context appContext) {
-        if (appContext instanceof Context) {
-            SharedPreferences settings = appContext.getSharedPreferences(
-                    PREFS_NAME, Context.MODE_PRIVATE);
-            return settings.getInt("SHOW_RATE_APP", 0);
-        }
-        return 0;
-    }
-
-    // 1 - Arata, 0 - Nu arata - -1 - Nu mai arata EVER
-    public static void setShowRateAppTime(Context appContext, long time) {
-        if (appContext instanceof Context) {
-            SharedPreferences settings = appContext.getSharedPreferences(
-                    PREFS_NAME, Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putLong("SHOW_RATE_APP_TIME", time);
-            editor.commit();
-        }
-    }
-
-    public static long getShowRateAppTime(Context appContext) {
-        if (appContext instanceof Context) {
-            SharedPreferences settings = appContext.getSharedPreferences(
-                    PREFS_NAME, Context.MODE_PRIVATE);
-            return settings.getLong("SHOW_RATE_APP_TIME", 0);
-        }
-        return 0;
-    }
-
     public static String roundWithTwoDecimals(double number) {
         try {
             // format based on default locale
@@ -292,35 +168,6 @@ public class DUtils {
         }
     }
 
-
-    public static String get_language_id(Context ctx) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(ctx);
-        return preferences.getString("prefLanguage", "1");
-    }
-
-
-    public static LatLng getLocation_from_String(Context mContext, String query) {
-        LatLng mLatLn = new LatLng(0, 0);
-        try {
-            List<Address> addresses;
-            Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
-
-            addresses = geocoder.getFromLocationName(query, 1);
-
-            if (addresses.size() > 0) {
-                double latitude = addresses.get(0).getLatitude();
-                double longitude = addresses.get(0).getLongitude();
-                mLatLn = new LatLng(latitude, longitude);
-
-            } else {
-                Ln.e("no coordinates found");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return mLatLn;
-    }
 
     public static String getApplicationVersion(Context context) {
         PackageInfo pInfo;
@@ -358,79 +205,6 @@ public class DUtils {
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
-    }
-
-    public static void show_error_dialog_not_registered(Context mContext) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setTitle(mContext.getString(R.string.app_name));
-        builder.setMessage(mContext.getString(R.string.to_add_addresses_you_have_to_be_registered))
-                .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                });
-        AlertDialog alert = builder.create();
-        alert.show();
-    }
-
-    public static boolean checkEditText(EditText edit) {
-        return edit.getText().toString() != null && !edit.getText().toString().trim().equalsIgnoreCase("")
-                && !edit.getText().toString().equalsIgnoreCase("null");
-    }
-
-    public static Dialog LoadingSpinner(Context mContext) {
-        Dialog pd = new Dialog(mContext, android.R.style.Theme_Black);
-        View view = LayoutInflater.from(mContext).inflate(R.layout.aux_progress_spinner, null);
-        pd.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
-        pd.setContentView(view);
-        return pd;
-    }
-
-    public static Dialog RestaurantLoadingSpinner(Context mContext, String img_url) {
-
-        Dialog pd = new Dialog(mContext, android.R.style.Theme_Black);
-        View view = LayoutInflater.from(mContext).inflate(R.layout.restaurant_progress_spinner, null);
-
-        ImageView imageView_restaurant_progress_spinner = (ImageView) view.findViewById(R.id.imageView_restaurant_progress_spinner);
-
-        Picasso.with(mContext).load(img_url)
-                //.memoryPolicy(MemoryPolicy.NO_CACHE)
-                .error(R.drawable.ic_launcher)
-                .transform(new CircleTransform())
-                .into(imageView_restaurant_progress_spinner);
-
-
-        pd.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
-        pd.setContentView(view);
-        return pd;
-
-    }
-
-
-    /**
-     * day- String, (Required), The date for delivery. Format "Y-m-d". Example: "2015-03-23"
-     */
-    public static String formatDeliveryDate(int year, int monthOfYear, int dayOfMonth) {
-        StringBuilder dateBuilder = new StringBuilder();
-        dateBuilder.append(year);
-        dateBuilder.append("-");
-        dateBuilder.append((monthOfYear >= 10) ? monthOfYear : "0" + monthOfYear);
-        dateBuilder.append("-");
-        dateBuilder.append((dayOfMonth >= 10) ? dayOfMonth : "0" + dayOfMonth);
-
-        return dateBuilder.toString();
-    }
-
-    public static String formatDeliveryTime(int hourOfDay, int minute) {
-        StringBuilder dateBuilder = new StringBuilder();
-        dateBuilder.append(hourOfDay);
-        dateBuilder.append(":");
-        dateBuilder.append((minute >= 10) ? minute : "0" + minute);
-
-        return dateBuilder.toString();
     }
 
     public static String list_to_nice_string(List<Object> cuisines) {

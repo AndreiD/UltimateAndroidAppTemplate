@@ -6,30 +6,45 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Click me"
-        android:id="@+id/button_main"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16sp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Recycle View"
+            android:id="@+id/button_recycler"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Retrofit API"
+            android:id="@+id/button_api"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="a textview..."
-        android:id="@+id/textView_main"
-        android:layout_above="@+id/button_main"
-        android:layout_alignRight="@+id/button_main"
-        android:layout_alignEnd="@+id/button_main"
-        android:layout_marginBottom="25dp"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView_main"
-        android:layout_centerVertical="true"
+        android:text="Hello."
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_launcher"/>
+        android:layout_marginTop="77dp"
+        android:textSize="25sp"
+        android:textColor="@color/accent"/>
+
 </RelativeLayout>

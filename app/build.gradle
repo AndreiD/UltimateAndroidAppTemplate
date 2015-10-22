@@ -1,41 +1,89 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.3.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+def AAVersion = '3.3.2'
+
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "23.0.0 rc2"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.0 rc3"
 
     defaultConfig {
         applicationId "com.andrei.template"
-        minSdkVersion 10
-        targetSdkVersion 22
+        minSdkVersion 15
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug {
+        debug{
             minifyEnabled false
         }
+    }
+
+    packagingOptions{
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'allclasses-frame.html'
+        exclude 'allclasses-noframe.html'
+        exclude 'constant-values.html'
+        exclude 'deprecated-list.html'
+        exclude 'help-doc.html'
+        exclude 'index-all.html'
+        exclude 'index.html'
+    }
+}
+
+
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0].processResources.manifestFile
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.android.support:support-v4:22.+'
-
-    compile 'org.roboguice:roboguice:3.+'
-    provided 'org.roboguice:roboblender:3.+'
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:support-v4:23+'
+    compile 'com.android.support:support-annotations:23+'
+    compile 'com.android.support:recyclerview-v7:23+'
+    compile 'com.android.support:design:23+'
+    compile 'de.greenrobot:eventbus:2.4.0'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.squareup.okhttp:okhttp:2.3.0'
-
-    compile('de.keyboardsurfer.android.widget:crouton:1.8.5@aar') {
-        exclude group: 'com.google.android', module: 'support-v4'
-    }
     compile 'com.squareup.picasso:picasso:2.5.2'
-}
+    compile 'com.android.support:recyclerview-v7:23+'
+    compile 'com.android.support:design:23+'
 
+    //-------- app fonts -----------
+    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
+
+    //----- nice progress app ----
+    compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+
+}

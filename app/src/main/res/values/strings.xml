@@ -14,5 +14,9 @@
     <string name="options">Options</string>
     <string name="share">Share</string>
     <string name="settings_saved">Settings saved</string>
+    <string name="send_feedback">Send Feedback</string>
+    <string name="version">Beta 0.1</string>
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
 
 </resources>
