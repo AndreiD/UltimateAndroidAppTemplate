@@ -4,9 +4,9 @@ Ultimate Android App Template 2
 an extremely simple android template having everything you might need to get a boost start into your app.
 
 
-->
+
 ![alt text](https://github.com/AndreiD/UltimateAndroidAppTemplate/blob/master/app/the_gif_1.gif "How the app looks 1")
-<-
+
 
 #### How to use it:
 
