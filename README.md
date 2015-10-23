@@ -55,7 +55,7 @@ dependencies {
 - Feedback contact by email for feedback / Settings Page with some dummy settings etc.
 
 
-####Updates, Questions, and Requests
+#### Updates, Questions, and Requests
 
 Ping me here :)
 
