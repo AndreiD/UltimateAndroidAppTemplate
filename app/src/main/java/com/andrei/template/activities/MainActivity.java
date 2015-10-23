@@ -2,11 +2,13 @@ package com.andrei.template.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.widget.Button;
 
+import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
 import com.andrei.template.MyBaseActivity;
 import com.andrei.template.R;
 import com.andrei.template.fragments.ApiDemoFragment;
@@ -15,6 +17,8 @@ import com.andrei.template.fragments.RecyclerDemoFragment;
 import com.andrei.template.fragments.RecyclerDemoFragment_;
 import com.andrei.template.utils.DUtils;
 
+import org.androidannotations.annotations.AfterInject;
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.OptionsItem;
@@ -29,7 +33,7 @@ public class MainActivity extends MyBaseActivity {
 
     @ViewById Button button_recycler;
     @ViewById Button button_api;
-
+    @ViewById IconRoundCornerProgressBar progress_1;
 
     private MainActivity mContext;
 
@@ -42,7 +46,23 @@ public class MainActivity extends MyBaseActivity {
 
     }
 
+    @AfterViews
+    void after__views() {
 
+        progress_1.setMax(99);
+        new CountDownTimer(10000,10){
+
+            @Override public void onTick(long millisUntilFinished) {
+                int progress = (int) millisUntilFinished/100 ;
+                Log.i("PROGRESS",String.valueOf(progress));
+                progress_1.setProgress(100-progress-1);
+            }
+            @Override public void onFinish() {
+
+            }
+        }.start();
+
+    }
     @Click(R.id.button_api) void api_clicked() {
 
         ApiDemoFragment r_fragment = ApiDemoFragment_.builder()
