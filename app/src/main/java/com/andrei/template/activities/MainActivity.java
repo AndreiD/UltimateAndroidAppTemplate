@@ -50,11 +50,9 @@ public class MainActivity extends MyBaseActivity {
     void after__views() {
 
         progress_1.setMax(99);
-        new CountDownTimer(10000,10){
-
+        new CountDownTimer(10000,100){
             @Override public void onTick(long millisUntilFinished) {
                 int progress = (int) millisUntilFinished/100 ;
-                Log.i("PROGRESS",String.valueOf(progress));
                 progress_1.setProgress(100-progress-1);
             }
             @Override public void onFinish() {
@@ -71,7 +69,7 @@ public class MainActivity extends MyBaseActivity {
     }
 
     @Click(R.id.button_recycler) void recycler_btn_clicked() {
-        Log.i("MainActivity", "Button button_recycler pressed");
+        Log.i("MainActivity", "Button Button_recycler Pressed");
 
         RecyclerDemoFragment r_fragment = RecyclerDemoFragment_.builder()
                 .build();
