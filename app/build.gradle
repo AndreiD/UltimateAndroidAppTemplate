@@ -76,7 +76,7 @@ dependencies {
     compile 'de.greenrobot:eventbus:2.4.0'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.squareup.okhttp:okhttp:2.3.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.bumptech.glide:glide:3.6.1'
     compile 'com.android.support:recyclerview-v7:23+'
     compile 'com.android.support:design:23+'
 
@@ -85,5 +85,8 @@ dependencies {
 
     //----- nice progress app ----
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+
+    //-------------- replacement for snackbar -------
+    compile 'com.androidadvance:topsnackbar:0.0.8'
 
 }

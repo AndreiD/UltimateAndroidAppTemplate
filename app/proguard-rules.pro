@@ -18,6 +18,8 @@
 
 -keep public class AnnotationDatabaseImpl
 
+
+
 -target 1.6
 -dontobfuscate
 -dontoptimize
@@ -94,3 +96,10 @@
 # Don't warn about those in case this app is linking against an older
 # platform version.  We know about them, and they are safe.
 -dontwarn android.support.**
+
+# - keep glide library
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
+    **[] $VALUES;
+    public *;
+}

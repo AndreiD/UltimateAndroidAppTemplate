@@ -21,7 +21,9 @@ import android.widget.Toast;
 import com.andrei.template.R;
 import com.andrei.template.activities.MainActivity;
 import com.andrei.template.utils.DUtils;
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 
 import java.io.File;
 import java.util.ArrayList;
@@ -54,8 +56,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.XPhoto
     public void onBindViewHolder(final XPhotoViewHolder holder, final int position) {
 
         String url = mPhotos.get(position);
-        Picasso.with(mContext).load(url)
+
+        Glide.with(mContext).load(url)
                 .error(R.drawable.ic_error)
+                .diskCacheStrategy(DiskCacheStrategy.RESULT)
                 .into(holder.the_photo);
 
 
