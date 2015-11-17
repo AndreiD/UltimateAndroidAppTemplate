@@ -1,18 +1,12 @@
 package com.andrei.template;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-
 import com.andrei.template.api.MyApi;
-import com.squareup.okhttp.OkHttpClient;
 
-import java.util.concurrent.TimeUnit;
-
-import retrofit.RestAdapter;
-import retrofit.client.Client;
-import retrofit.client.OkClient;
+import retrofit.GsonConverterFactory;
+import retrofit.Retrofit;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -39,15 +33,11 @@ public class MyBaseActivity extends AppCompatActivity {
 
 
         //--------- initialize retrofit shit ------
-        OkHttpClient httpClient = new OkHttpClient();
-        httpClient.setConnectTimeout(2, TimeUnit.SECONDS);
-        Client client = new OkClient(httpClient);
-        RestAdapter restAdapter = new RestAdapter.Builder()
-                .setEndpoint(Constants.BASE_URL)
-                .setClient(client)
-                .setLogLevel(RestAdapter.LogLevel.BASIC)
+        Retrofit mretrofit = new Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        myAPI = restAdapter.create(MyApi.class);
+        myAPI = mretrofit.create(MyApi.class);
 
     }
 

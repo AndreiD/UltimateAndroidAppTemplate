@@ -46,23 +46,23 @@ public class MainActivity extends MyBaseActivity {
 
     }
 
-    @AfterViews
-    void after__views() {
+    @AfterViews void after__views() {
 
         progress_1.setMax(99);
-        new CountDownTimer(10000,10){
+        new CountDownTimer(10000, 10) {
 
             @Override public void onTick(long millisUntilFinished) {
-                int progress = (int) millisUntilFinished/100 ;
-                Log.i("PROGRESS",String.valueOf(progress));
-                progress_1.setProgress(100-progress-1);
+                int progress = (int) millisUntilFinished / 100;
+                progress_1.setProgress(100 - progress - 1);
             }
+
             @Override public void onFinish() {
 
             }
         }.start();
 
     }
+
     @Click(R.id.button_api) void api_clicked() {
 
         ApiDemoFragment r_fragment = ApiDemoFragment_.builder()

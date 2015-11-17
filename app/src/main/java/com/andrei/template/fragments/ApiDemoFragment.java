@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.andrei.template.R;
 import com.andrei.template.adapters.RecyclerAdapter;
 import com.andrei.template.models.WhatsMyIpPOJO;
 import com.andrei.template.utils.DUtils;
+import com.squareup.okhttp.ResponseBody;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -25,9 +27,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import retrofit.Call;
 import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 @EFragment(R.layout.fragment_apidemo)
 public class ApiDemoFragment extends Fragment {
@@ -50,16 +53,26 @@ public class ApiDemoFragment extends Fragment {
 
         start_time = System.currentTimeMillis();
 
-        ((MyBaseActivity) mContext).getMyAPI().getterStuf("a_parameter...", new Callback<WhatsMyIpPOJO>() {
-            @Override public void success(WhatsMyIpPOJO whatsMyIpPOJO, Response response) {
-                textView_response.setText(String.valueOf(whatsMyIpPOJO.toString()));
-                textView_response.append(" done in " + String.valueOf(System.currentTimeMillis() - start_time) + " ms");
+        Call<WhatsMyIpPOJO> call = ((MyBaseActivity) mContext).getMyAPI().getterStuf("a parameter...");
+
+        call.enqueue(new Callback<WhatsMyIpPOJO>() {
+            @Override public void onResponse(Response<WhatsMyIpPOJO> response, Retrofit retrofit) {
+                if (response.isSuccess()) {
+                    WhatsMyIpPOJO mPojo = response.body();
+                    textView_response.setText(mPojo.toString());
+                    textView_response.append("\n done in " + String.valueOf(System.currentTimeMillis() - start_time) + " ms");
+                } else {
+                    int statusCode = response.code();
+                    ResponseBody errorBody = response.errorBody();
+                    Log.e("request failed", errorBody.toString());
+                }
             }
 
-            @Override public void failure(RetrofitError error) {
-                DUtils.inform(mContext,"api call faild :(",R.color.orange_light);
+            @Override public void onFailure(Throwable t) {
+                Log.e("onFailure", t.getMessage());
             }
         });
+
 
     }
 
