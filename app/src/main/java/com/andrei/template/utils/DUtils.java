@@ -4,39 +4,31 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.location.Address;
-import android.location.Geocoder;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.andrei.template.R;
+import com.androidadvance.topsnackbar.TSnackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -87,9 +79,9 @@ public class DUtils {
 
 
     public static void inform(Activity mView, String string, int text_color) {
-        Snackbar snack = Snackbar.make(mView.findViewById(android.R.id.content), string, Snackbar.LENGTH_LONG);
+        TSnackbar snack = TSnackbar.make(mView.findViewById(android.R.id.content), string, TSnackbar.LENGTH_LONG);
         View view = snack.getView();
-        TextView tv = (TextView) view.findViewById(android.support.design.R.id.snackbar_text);
+        TextView tv = (TextView) view.findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text);
         tv.setTextColor(mView.getResources().getColor(text_color));
 
         //change background color too ?
@@ -288,33 +280,6 @@ public class DUtils {
             return "";
         }
 
-    }
-
-    // ------- GET USER EMAIL ADDRESS
-
-    public static class UserEmailFetcher {
-
-        public static String getEmail(Context context) {
-            AccountManager accountManager = AccountManager.get(context);
-            Account account = getAccount(accountManager);
-
-            if (account == null) {
-                return null;
-            } else {
-                return account.name;
-            }
-        }
-
-        private static Account getAccount(AccountManager accountManager) {
-            Account[] accounts = accountManager.getAccountsByType("com.google");
-            Account account;
-            if (accounts.length > 0) {
-                account = accounts[0];
-            } else {
-                account = null;
-            }
-            return account;
-        }
     }
 
     @TargetApi(9)

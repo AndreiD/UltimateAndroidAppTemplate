@@ -1,12 +1,25 @@
 Ultimate Android App Template 2
 ==========================
 
-### A simple app template. Nothing fancy. Material Design in red accents.
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-UltimateAndroidAppTemplate-brightgreen.svg?style=flat)](http://android-arsenal.com/details/3/2781)
 
 
-![alt text](https://github.com/AndreiD/UltimateAndroidAppTemplate/blob/master/app/device-2015-10-22-191003.png "How the app looks 1")
+This is a simple start-template to save you a little time.
 
-![alt text](https://github.com/AndreiD/UltimateAndroidAppTemplate/blob/master/app/device-2015-10-22-191017.png "How the app looks 2")
+
+![alt text](https://github.com/AndreiD/UltimateAndroidAppTemplate/blob/master/app/the_gif_1.gif "How the app looks 1")
+
+
+#### How to use it:
+
+* Create a new blank android project
+* Download the zip file for this project
+* Copy paste the app folder
+* Copy paste the build.gradle and modify applicationId "com.andrei.template" to your package name
+* Check the compileSdkVersion, and buildToolsVersion to be the latest
+* Run it. Remove the libs that you don't need. Add those that you do. 
+* Star this repository :)
+
 
 #### What it contains:
 
@@ -45,7 +58,39 @@ dependencies {
 - Feedback contact by email for feedback / Settings Page with some dummy settings etc.
 
 
+#### Updates, Questions, and Requests
+
+Ping me here :)
+
+
+#### TODO://
+
+* proguard config
+* login forms
+* test cases
+* database examples
+* event bus
+
+#### You like this library ? Check:
+- https://github.com/AndreiD/surveylib - A very good looking survey library
+- https://github.com/AndreiD/TSnackBar Snackbar from the top
 
 
 
+#### License
 
+~~~~
+Copyright 2015 AndroidAdvance.com
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+~~~~
