@@ -50,9 +50,6 @@ dependencies {
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
 
     compile 'com.androidadvance:topsnackbar:0.0.9'
-
-}
-
 }
 
 ~~~~
