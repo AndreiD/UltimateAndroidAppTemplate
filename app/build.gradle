@@ -78,8 +78,7 @@ dependencies {
     compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
 
-    compile 'com.squareup.okhttp:okhttp:2.3.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.bumptech.glide:glide:3.6.1'
     compile 'com.android.support:recyclerview-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
 
@@ -88,5 +87,7 @@ dependencies {
 
     //----- nice progress app ----
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+
+    compile 'com.androidadvance:topsnackbar:0.0.9'
 
 }
