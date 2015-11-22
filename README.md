@@ -73,7 +73,6 @@ Ping me here :)
 
 #### TODO://
 
-* proguard config
 * login forms
 * test cases
 * database examples
