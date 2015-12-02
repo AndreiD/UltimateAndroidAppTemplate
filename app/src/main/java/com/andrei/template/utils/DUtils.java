@@ -77,20 +77,6 @@ public class DUtils {
         }
     }
 
-
-    public static void inform(Activity mView, String string, int text_color) {
-        TSnackbar snack = TSnackbar.make(mView.findViewById(android.R.id.content), string, TSnackbar.LENGTH_LONG);
-        View view = snack.getView();
-        TextView tv = (TextView) view.findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text);
-        tv.setTextColor(mView.getResources().getColor(text_color));
-
-        //change background color too ?
-        view.setBackgroundColor(mView.getResources().getColor(R.color.accent));
-
-        snack.show();
-    }
-
-
     /**
      * Force show softKeyboard.
      */

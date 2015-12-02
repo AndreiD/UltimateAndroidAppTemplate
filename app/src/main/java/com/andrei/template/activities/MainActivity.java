@@ -3,11 +3,11 @@ package com.andrei.template.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
 import com.andrei.template.MyBaseActivity;
@@ -17,8 +17,8 @@ import com.andrei.template.fragments.ApiDemoFragment_;
 import com.andrei.template.fragments.RecyclerDemoFragment;
 import com.andrei.template.fragments.RecyclerDemoFragment_;
 import com.andrei.template.utils.DUtils;
+import com.androidadvance.topsnackbar.TSnackbar;
 
-import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
@@ -35,8 +35,6 @@ public class MainActivity extends MyBaseActivity {
     @ViewById Button button_recycler;
     @ViewById Button button_api;
     @ViewById IconRoundCornerProgressBar progress_1;
-    @ViewById ImageButton imageButton_camera;
-
     private MainActivity mContext;
 
 
@@ -44,12 +42,11 @@ public class MainActivity extends MyBaseActivity {
         super.onCreate(savedInstanceState);
 
         mContext = MainActivity.this;
-
-
     }
 
-    @AfterViews void after__views() {
 
+
+    @AfterViews void after__views() {
         progress_1.setMax(99);
         new CountDownTimer(10000, 10) {
 
@@ -81,16 +78,20 @@ public class MainActivity extends MyBaseActivity {
 
 
         //------- show a nice toast message ---------
-        DUtils.inform(mContext, "Loading Images...", R.color.white);
+
+        Snackbar snack = Snackbar.make(mContext.findViewById(android.R.id.content),  "Loading Images...", Snackbar.LENGTH_LONG);
+        View view = snack.getView();
+        TextView tv = (TextView) view.findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text);
+        tv.setTextColor(mContext.getResources().getColor(R.color.white));
+        //change background color too ?
+        view.setBackgroundColor(mContext.getResources().getColor(R.color.accent));
+        snack.show();
     }
 
-    @Click(R.id.imageButton_camera) void ask_camera_permissions(){
-        Log.i("MainActivity", "Button imageButton_camera pressed");
-        //you can check https://github.com/afollestad/material-camera for an easy camera library.
 
 
-    }
 
+    //---------- Menu Items ----------
 
     @OptionsItem(R.id.action_settings) void menu_settings() {
         getFragmentManager().beginTransaction().replace(android.R.id.content,
@@ -110,6 +111,7 @@ public class MainActivity extends MyBaseActivity {
     }
 
 
+    //---------- Lifecycle ----------
     @Override
     protected void onResume() {
         super.onResume();
@@ -128,6 +130,7 @@ public class MainActivity extends MyBaseActivity {
             super.onBackPressed();
         }
     }
+
 
 }
 

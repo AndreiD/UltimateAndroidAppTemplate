@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import com.andrei.template.api.MyApi;
+import com.karumi.dexter.Dexter;
 
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
@@ -38,6 +39,9 @@ public class MyBaseActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         myAPI = mretrofit.create(MyApi.class);
+
+        //----- permission system ------
+        Dexter.initialize(this);
 
     }
 

@@ -89,9 +89,6 @@ dependencies {
     //----- nice progress app ----
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
 
-    //---- snackbar from top!
-    compile 'com.androidadvance:topsnackbar:0.0.9'
-
     //---- easy permission management
     compile 'com.karumi:dexter:2.1.2'
 
