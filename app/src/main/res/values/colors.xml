@@ -1,37 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="the_app_color">#00BFF3</color>
-    <color name="twixxotheme_color">#00BFF3</color>
-    <color name="the_app_color_lighter">#00BFF3</color>
-    <color name="the_app_color_lighter_transparent">#2000BFF3</color>
-    <color name="background_window">#FFE5E5E5</color>
 
-    <color name="gray">#666666</color>
-    <color name="light_gray">#D4D4D4</color>
-    <color name="gray_shadow">#cccccc</color>
-    <color name="grey_background">#eeeeee</color>
-    <color name="black">#000000</color>
-    <color name="background_user_navigation_drawer">#161F29</color>
+    <color name="colorPrimary">#FBC02D</color>
+    <color name="colorPrimaryDark">#e0ab28</color>
+    <color name="colorAccent">#448AFF</color>
+    <color name="colorAccentLighter">#64AAFF</color>
 
-    <!-- Colours for API <21 -->
 
-    <color name="primaryDark">#800000</color>
-    <color name="light">#dc143c</color>
-    <color name="accent">#CC0000</color>
-
-    <color name="grey_font">#333333</color>
-
-    <color name="app_color_1">#800000</color>
-    <color name="app_color_2">#AA0000</color>
-    <color name="app_color_3">#BB0000</color>
-    <color name="app_color_4">#CC0000</color>
-    <color name="app_color_5">#EE0000</color>
-    <color name="progress_gray">#FFD8D8D8</color>
-    <color name="progress_gray_dark">#FF383838</color>
-
-    <color name="bg_gradient_start">#FFBBBB</color>
-    <color name="bg_gradient_end">#FFFFFF</color>
-
+    <color name="primary_dark">#FBC02D</color>
+    <color name="primary_light">#FFF9C4</color>
+    <color name="accent">#448AFF</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#212121</color>
+    <color name="divider">#B6B6B6</color>
 
 
 

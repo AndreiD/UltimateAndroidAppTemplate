@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
 import com.andrei.template.MyBaseActivity;
@@ -34,6 +35,7 @@ public class MainActivity extends MyBaseActivity {
     @ViewById Button button_recycler;
     @ViewById Button button_api;
     @ViewById IconRoundCornerProgressBar progress_1;
+    @ViewById ImageButton imageButton_camera;
 
     private MainActivity mContext;
 
@@ -80,6 +82,13 @@ public class MainActivity extends MyBaseActivity {
 
         //------- show a nice toast message ---------
         DUtils.inform(mContext, "Loading Images...", R.color.white);
+    }
+
+    @Click(R.id.imageButton_camera) void ask_camera_permissions(){
+        Log.i("MainActivity", "Button imageButton_camera pressed");
+        //you can check https://github.com/afollestad/material-camera for an easy camera library.
+
+
     }
 
 

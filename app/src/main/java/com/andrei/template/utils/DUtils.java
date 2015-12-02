@@ -85,7 +85,7 @@ public class DUtils {
         tv.setTextColor(mView.getResources().getColor(text_color));
 
         //change background color too ?
-        view.setBackgroundColor(mView.getResources().getColor(R.color.primaryDark));
+        view.setBackgroundColor(mView.getResources().getColor(R.color.accent));
 
         snack.show();
     }
@@ -113,8 +113,7 @@ public class DUtils {
 
 
     public static boolean isValidPhoneNumber(String phoneNumber) {
-        String regex = "^07[0-9]{8}$";
-
+        String regex = "^07[0-9]{8}$"; //Romania :)
         return phoneNumber.matches(regex);
     }
 

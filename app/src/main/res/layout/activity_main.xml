@@ -35,6 +35,10 @@
             android:layout_alignParentStart="true"
             android:layout_weight="1"
             android:text="Retrofit API"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton_camera" android:src="@android:drawable/ic_menu_camera"/>
     </LinearLayout>
 
     <TextView
@@ -60,9 +64,9 @@
         android:layout_marginTop="16dp"
         app:rcIconPadding="5dp"
         app:rcIconSize="30dp"
-        app:rcBackgroundColor="@color/gray_shadow"
-        app:rcProgressColor="@color/app_color_2"
-        app:rcIconBackgroundColor="@color/app_color_1"
+        app:rcBackgroundColor="@color/LightGrey"
+        app:rcProgressColor="@color/accent"
+        app:rcIconBackgroundColor="@color/accent"
         app:rcIconSrc="@drawable/ic_clock"
         />
 
