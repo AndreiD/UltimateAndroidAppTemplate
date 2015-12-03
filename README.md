@@ -32,12 +32,13 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:support-v4:23.1.0'
     compile 'com.android.support:support-annotations:23.1.0'
-    compile 'com.android.support:recyclerview-v7:23.1.0'
-    compile 'com.android.support:design:23.1.0'
-    compile 'de.greenrobot:eventbus:2.4.0'
 
+    //----- for REST stuff
     compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
+
+    //--- no app without eventbuss :)
+    compile 'de.greenrobot:eventbus:2.4.0'
 
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile 'com.android.support:recyclerview-v7:23.1.0'
@@ -49,15 +50,21 @@ dependencies {
     //----- nice progress app ----
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
 
-    compile 'com.androidadvance:topsnackbar:0.0.9'
+    //---- easy permission management
+    compile 'com.karumi:dexter:2.1.2'
+
+    //---- database
+    compile 'de.greenrobot:greendao:2.0.0'
+    compile 'de.greenrobot:greendao-generator:2.0.0'
 }
 
 ~~~~
 
 - Powered by Android Annotations
 - Retrofit API ready to be used
-- Picasso for image loading
-- Snackbar, RecyclerView, Pull to Refresh etc.
+- Glide for image loading
+- GreenDao for database stuff
+- RecyclerView, Pull to Refresh etc.
 - Feedback contact by email for feedback / Settings Page with some dummy settings etc.
 
 
@@ -75,8 +82,6 @@ Ping me here :)
 
 * login forms
 * test cases
-* database examples
-* event bus
 
 #### You like this library ? Check:
 - https://github.com/AndreiD/surveylib - A very good looking survey library
