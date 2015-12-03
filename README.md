@@ -17,7 +17,7 @@ This is a simple start-template to save you a little time.
 * Copy paste the app folder
 * Copy paste the build.gradle and modify applicationId "com.andrei.template" to your package name
 * Check the compileSdkVersion, and buildToolsVersion to be the latest
-* Run it. Remove the libs that you don't need. Add those that you do. 
+* Run it. Remove the libs that you don't need. Add those that you do. Profit!
 * Star this repository :)
 
 
@@ -66,7 +66,7 @@ dependencies {
 - GreenDao for database
 - RecyclerView, Pull to Refresh etc.
 - Feedback contact by email for feedback / Settings Page with some dummy settings etc.
-
+- Android 6.0 Permission Management Ready.
 
 #### Need more ?
 
