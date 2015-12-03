@@ -83,7 +83,7 @@ Ping me here :)
 * login forms
 * test cases
 
-#### You like this library ? Check:
+#### You like this library ? Check
 - https://github.com/AndreiD/surveylib - A very good looking survey library
 - https://github.com/AndreiD/TSnackBar Snackbar from the top
 
