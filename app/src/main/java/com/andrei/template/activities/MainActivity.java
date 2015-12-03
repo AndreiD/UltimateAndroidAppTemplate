@@ -1,13 +1,17 @@
 package com.andrei.template.activities;
 
+import android.Manifest;
+import android.annotation.TargetApi;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageButton;
 
 import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
 import com.andrei.template.MyBaseActivity;
@@ -16,7 +20,11 @@ import com.andrei.template.fragments.ApiDemoFragment;
 import com.andrei.template.fragments.ApiDemoFragment_;
 import com.andrei.template.fragments.RecyclerDemoFragment;
 import com.andrei.template.fragments.RecyclerDemoFragment_;
-import com.andrei.template.utils.DUtils;
+import com.andrei.template.permissions.SamplePermissionListener;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.single.CompositePermissionListener;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -34,15 +42,25 @@ public class MainActivity extends MyBaseActivity {
     @ViewById Button button_recycler;
     @ViewById Button button_api;
     @ViewById IconRoundCornerProgressBar progress_1;
+    @ViewById ImageButton imageButton_camera;
     private MainActivity mContext;
+    private PermissionListener cameraPermissionListener;
+    private View rootView;
 
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mContext = MainActivity.this;
-    }
 
+        rootView = findViewById(android.R.id.content);
+
+        //------ Permissions ----------
+        PermissionListener feedbackViewPermissionListener = new SamplePermissionListener(this);
+        cameraPermissionListener = new CompositePermissionListener(feedbackViewPermissionListener);
+
+
+    }
 
 
     @AfterViews void after__views() {
@@ -62,24 +80,23 @@ public class MainActivity extends MyBaseActivity {
     }
 
     @Click(R.id.button_api) void api_clicked() {
-
         ApiDemoFragment r_fragment = ApiDemoFragment_.builder()
                 .build();
         getFragmentManager().beginTransaction().replace(android.R.id.content, r_fragment).addToBackStack(null).commit();
     }
 
     @Click(R.id.button_recycler) void recycler_btn_clicked() {
-        Log.i("MainActivity", "Button button_recycler pressed");
-
         RecyclerDemoFragment r_fragment = RecyclerDemoFragment_.builder()
                 .build();
         getFragmentManager().beginTransaction().replace(android.R.id.content, r_fragment).addToBackStack(null).commit();
-
-
-
     }
 
-
+    @Click(R.id.imageButton_camera) void camera_clicked() {
+        if (Dexter.isRequestOngoing()) {
+            return;
+        }
+        Dexter.checkPermission(cameraPermissionListener, Manifest.permission.CAMERA);
+    }
 
 
     //---------- Menu Items ----------
@@ -122,6 +139,49 @@ public class MainActivity extends MyBaseActivity {
         }
     }
 
+
+    //---------- Android 6.0+ Permissions Management ----------
+    public void showPermissionGranted(String permissionName) {
+        Log.v("showPermissionGranted", String.valueOf(permissionName));
+    }
+
+    public void showPermissionDenied(String permissionName, boolean permanentlyDenied) {
+        Log.e("showPermissionDenied", String.valueOf(permissionName) + " permanently: " + String.valueOf(permanentlyDenied));
+        if (permanentlyDenied) {
+            new AlertDialog.Builder(this).setTitle("Attention")
+                    .setMessage("The permission was permanently denied. Please reinstall the app")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .show();
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    public void showPermissionRationale(final PermissionToken token) {
+        new AlertDialog.Builder(this).setTitle(R.string.permission_rationale_title)
+                .setMessage(R.string.permission_rationale_message)
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        token.cancelPermissionRequest();
+                    }
+                })
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        token.continuePermissionRequest();
+                    }
+                })
+                .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override public void onDismiss(DialogInterface dialog) {
+                        token.cancelPermissionRequest();
+                    }
+                })
+                .show();
+    }
 
 }
 

@@ -18,8 +18,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MyBaseActivity extends AppCompatActivity {
 
-
-
     private MyApi myAPI;
     private Table_WhatsMyIpPOJODao xWhatsMyIpPOJODao;
 
@@ -28,17 +26,14 @@ public class MyBaseActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-
-        //-------- set app fonts ---------
+        //----- app fonts -----
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/AdelleSans-Regular.ttf")
                         .setFontAttrId(R.attr.fontPath)
                         .build()
         );
 
-
-
-        //--------- initialize retrofit shit ------
+        //----- retrofit -----
         Retrofit mretrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -49,7 +44,6 @@ public class MyBaseActivity extends AppCompatActivity {
         Dexter.initialize(this);
 
         //------- database stuff -------
-        //--- remove it if you don't plan to use it
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "m_database", null);
         SQLiteDatabase ex_db = helper.getWritableDatabase();
         DaoMaster daoMaster = new DaoMaster(ex_db);
@@ -67,7 +61,6 @@ public class MyBaseActivity extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
-    //--- remove it if you don't use it.
     public Table_WhatsMyIpPOJODao getWhatsMyIpPOJODao() {
         return xWhatsMyIpPOJODao;
     }
