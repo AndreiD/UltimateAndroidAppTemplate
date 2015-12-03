@@ -3,9 +3,6 @@ package com.andrei.template.fragments;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,18 +11,17 @@ import android.widget.TextView;
 
 import com.andrei.template.MyBaseActivity;
 import com.andrei.template.R;
-import com.andrei.template.adapters.RecyclerAdapter;
+import com.andrei.template.database.Table_WhatsMyIpPOJO;
+import com.andrei.template.database.Table_WhatsMyIpPOJODao;
 import com.andrei.template.models.WhatsMyIpPOJO;
-import com.andrei.template.utils.DUtils;
 import com.squareup.okhttp.ResponseBody;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
 import retrofit.Call;
 import retrofit.Callback;
@@ -45,6 +41,7 @@ public class ApiDemoFragment extends Fragment {
 
         mContext = getActivity();
 
+        load_from_db();
 
         return null;
     }
@@ -61,6 +58,9 @@ public class ApiDemoFragment extends Fragment {
                     WhatsMyIpPOJO mPojo = response.body();
                     textView_response.setText(mPojo.toString());
                     textView_response.append("\n done in " + String.valueOf(System.currentTimeMillis() - start_time) + " ms");
+
+                    store_to_db(mPojo);
+
                 } else {
                     int statusCode = response.code();
                     ResponseBody errorBody = response.errorBody();
@@ -76,5 +76,23 @@ public class ApiDemoFragment extends Fragment {
 
     }
 
+    //------ simple store to DB ------
+    private void store_to_db(WhatsMyIpPOJO mPojo) {
+        Table_WhatsMyIpPOJODao mWDato = ((MyBaseActivity) mContext).getWhatsMyIpPOJODao();
+        try {
+            mWDato.insert(new Table_WhatsMyIpPOJO(mPojo.getYourFuckingIPAddress(), mPojo.getYourFuckingLocation(), mPojo.getYourFuckingHostname(), mPojo.getYourFuckingISP(), new Date()));
+        } catch (Exception ex) {
+            Log.e("db exception", ex.getMessage());
+        }
+    }
+
+
+    //---- simple get from DB --------
+    private void load_from_db() {
+        Table_WhatsMyIpPOJODao mWDato = ((MyBaseActivity) mContext).getWhatsMyIpPOJODao();
+        List<Table_WhatsMyIpPOJO> xArrayList = mWDato.queryBuilder().orderDesc(Table_WhatsMyIpPOJODao.Properties.Date).list();
+        Log.v("Records in db: ",String.valueOf(xArrayList.size()));
+        Log.i(">",String.valueOf(xArrayList.toString()));
+    }
 
 }

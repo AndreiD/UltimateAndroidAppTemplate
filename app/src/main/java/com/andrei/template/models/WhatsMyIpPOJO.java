@@ -12,6 +12,13 @@ public class WhatsMyIpPOJO {
     private String YourFuckingISP;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    public WhatsMyIpPOJO(String yourFuckingIPAddress, String yourFuckingLocation, String yourFuckingHostname, String yourFuckingISP) {
+        YourFuckingIPAddress = yourFuckingIPAddress;
+        YourFuckingLocation = yourFuckingLocation;
+        YourFuckingHostname = yourFuckingHostname;
+        YourFuckingISP = yourFuckingISP;
+    }
+
     /**
      * @return The YourFuckingIPAddress
      */

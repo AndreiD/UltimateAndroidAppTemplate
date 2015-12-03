@@ -1,33 +1,21 @@
 package com.andrei.template.adapters;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
-import android.net.Uri;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import com.andrei.template.R;
 import com.andrei.template.activities.MainActivity;
-import com.andrei.template.utils.DUtils;
-import com.androidadvance.topsnackbar.TSnackbar;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-
-import java.io.File;
 import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.XPhotoViewHolder> {
@@ -38,11 +26,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.XPhoto
 
 
     public RecyclerAdapter(Context xContext, ArrayList<String> mPhotos) {
-
         this.mContext = xContext;
         this.mPhotos = mPhotos;
-
-
     }
 
 
@@ -68,14 +53,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.XPhoto
         holder.row_rellayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Snackbar snack = Snackbar.make(((MainActivity) mContext).findViewById(android.R.id.content), "Clicked on adapter position number " + String.valueOf(position), Snackbar.LENGTH_LONG);
-                View xview = snack.getView();
-                TextView tv = (TextView) xview.findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text);
-                tv.setTextColor(mContext.getResources().getColor(R.color.white));
-                //change background color too ?
-                xview.setBackgroundColor(mContext.getResources().getColor(R.color.accent));
-                snack.show();
+                Log.i("Clicked on position", String.valueOf(position));
             }
         });
 
