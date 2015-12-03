@@ -33,27 +33,27 @@ dependencies {
     compile 'com.android.support:support-v4:23.1.0'
     compile 'com.android.support:support-annotations:23.1.0'
 
-    //----- for REST stuff
+    //----- REST -----
     compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
 
-    //--- no app without eventbuss :)
+    //----- no app without eventbus :) -----
     compile 'de.greenrobot:eventbus:2.4.0'
 
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile 'com.android.support:recyclerview-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
 
-    //-------- app fonts -----------
+    //----- fonts -----
     compile 'uk.co.chrisjenx:calligraphy:2.1.0'
 
-    //----- nice progress app ----
+    //----- nice progress bar -----
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
 
-    //---- easy permission management
+    //----- easy 6.0 permission management -----
     compile 'com.karumi:dexter:2.1.2'
 
-    //---- database
+    //----- database -----
     compile 'de.greenrobot:greendao:2.0.0'
     compile 'de.greenrobot:greendao-generator:2.0.0'
 }
@@ -63,7 +63,7 @@ dependencies {
 - Powered by Android Annotations
 - Retrofit API ready to be used
 - Glide for image loading
-- GreenDao for database stuff
+- GreenDao for database
 - RecyclerView, Pull to Refresh etc.
 - Feedback contact by email for feedback / Settings Page with some dummy settings etc.
 
