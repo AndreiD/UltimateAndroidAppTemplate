@@ -1,9 +1,13 @@
 package com.andrei.template;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import com.andrei.template.api.MyApi;
+import com.andrei.template.database.DaoMaster;
+import com.andrei.template.database.DaoSession;
+import com.andrei.template.database.Table_WhatsMyIpPOJODao;
 import com.karumi.dexter.Dexter;
 
 import retrofit.GsonConverterFactory;
@@ -17,6 +21,7 @@ public class MyBaseActivity extends AppCompatActivity {
 
 
     private MyApi myAPI;
+    private Table_WhatsMyIpPOJODao xWhatsMyIpPOJODao;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,14 @@ public class MyBaseActivity extends AppCompatActivity {
         //----- permission system ------
         Dexter.initialize(this);
 
+        //------- database stuff -------
+        //--- remove it if you don't plan to use it
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "m_database", null);
+        SQLiteDatabase ex_db = helper.getWritableDatabase();
+        DaoMaster daoMaster = new DaoMaster(ex_db);
+        DaoSession daoSession = daoMaster.newSession();
+        xWhatsMyIpPOJODao = daoSession.getTable_WhatsMyIpPOJODao();
+
     }
 
     public MyApi getMyAPI() {
@@ -54,4 +67,8 @@ public class MyBaseActivity extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
+    //--- remove it if you don't use it.
+    public Table_WhatsMyIpPOJODao getWhatsMyIpPOJODao() {
+        return xWhatsMyIpPOJODao;
+    }
 }

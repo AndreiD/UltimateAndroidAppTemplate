@@ -92,4 +92,8 @@ dependencies {
     //---- easy permission management
     compile 'com.karumi:dexter:2.1.2'
 
+    //---- database
+    compile 'de.greenrobot:greendao:2.0.0'
+    compile 'de.greenrobot:greendao-generator:2.0.0'
+
 }
