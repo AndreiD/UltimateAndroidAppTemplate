@@ -28,7 +28,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.andrei.template.R;
-import com.androidadvance.topsnackbar.TSnackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;

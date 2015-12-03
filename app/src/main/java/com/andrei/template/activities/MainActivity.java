@@ -17,7 +17,6 @@ import com.andrei.template.fragments.ApiDemoFragment_;
 import com.andrei.template.fragments.RecyclerDemoFragment;
 import com.andrei.template.fragments.RecyclerDemoFragment_;
 import com.andrei.template.utils.DUtils;
-import com.androidadvance.topsnackbar.TSnackbar;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -77,15 +76,7 @@ public class MainActivity extends MyBaseActivity {
         getFragmentManager().beginTransaction().replace(android.R.id.content, r_fragment).addToBackStack(null).commit();
 
 
-        //------- show a nice toast message ---------
 
-        Snackbar snack = Snackbar.make(mContext.findViewById(android.R.id.content),  "Loading Images...", Snackbar.LENGTH_LONG);
-        View view = snack.getView();
-        TextView tv = (TextView) view.findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text);
-        tv.setTextColor(mContext.getResources().getColor(R.color.white));
-        //change background color too ?
-        view.setBackgroundColor(mContext.getResources().getColor(R.color.accent));
-        snack.show();
     }
 
 
