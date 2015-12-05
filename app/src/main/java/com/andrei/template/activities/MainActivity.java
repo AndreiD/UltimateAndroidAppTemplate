@@ -55,10 +55,9 @@ public class MainActivity extends MyBaseActivity {
 
         rootView = findViewById(android.R.id.content);
 
-        //------ Permissions ----------
+        //------ Permissions Management ----------
         PermissionListener feedbackViewPermissionListener = new SamplePermissionListener(this);
         cameraPermissionListener = new CompositePermissionListener(feedbackViewPermissionListener);
-
 
     }
 

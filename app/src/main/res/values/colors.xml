@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#FBC02D</color>
-    <color name="colorPrimaryDark">#e0ab28</color>
-    <color name="colorAccent">#448AFF</color>
-    <color name="colorAccentLighter">#64AAFF</color>
+    <!-- you can edit them easy in styles -> theme manager -->
+
+    <color name="appcolor_darkgrey">#424242</color>
+    <color name="appcolor_strong_orange">#FA6900</color>
+    <color name="appcolor_lightorange">#F38630</color>
+    <color name="appcolor_blue">#69D2E7</color>
+    <color name="appcolor_lightblue">#A7DBD8</color>
+    <color name="appcolor_red">#DD0042</color>
+    <color name="appcolor_yellow">#E0E4CC</color>
 
 
-    <color name="primary_dark">#FBC02D</color>
-    <color name="primary_light">#FFF9C4</color>
-    <color name="accent">#448AFF</color>
+    <color name="colorPrimary">@color/appcolor_darkgrey</color>
+    <color name="colorPrimaryDark">#313131</color>
+    <color name="colorAccent">@color/appcolor_blue</color>
+    <color name="colorAccentLighter">@color/appcolor_lightblue</color>
+
+
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#727272</color>
     <color name="icons">#212121</color>
