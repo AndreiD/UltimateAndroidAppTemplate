@@ -54,7 +54,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="77dp"
         android:text="Hello."
-        android:textColor="@color/accent"
+        android:textColor="@color/colorAccent"
         android:textSize="25sp"/>
 
 
@@ -70,8 +70,8 @@
         app:rcIconPadding="5dp"
         app:rcIconSize="30dp"
         app:rcBackgroundColor="@color/LightGrey"
-        app:rcProgressColor="@color/accent"
-        app:rcIconBackgroundColor="@color/accent"
+        app:rcProgressColor="@color/colorAccent"
+        app:rcIconBackgroundColor="@color/colorAccent"
         app:rcIconSrc="@drawable/ic_clock"
         />
 

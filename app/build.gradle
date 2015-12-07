@@ -22,9 +22,31 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
+    dexOptions {
+        incremental true
+    }
+
+    productFlavors {
+        dev {
+            minSdkVersion 22
+        }
+        prod {
+            minSdkVersion 15
+        }
+    }
+
+    signingConfigs {
+        config {
+            keyAlias 'appcert.key'
+            keyPassword 'password'
+            storeFile file('location...')
+            storePassword 'password'
+        }
+    }
+
     defaultConfig {
         applicationId "com.andrei.template"
-        minSdkVersion 15
+        minSdkVersion 22
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -34,6 +56,7 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
         debug{
             minifyEnabled false
@@ -54,6 +77,10 @@ android {
         exclude 'help-doc.html'
         exclude 'index-all.html'
         exclude 'index.html'
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 

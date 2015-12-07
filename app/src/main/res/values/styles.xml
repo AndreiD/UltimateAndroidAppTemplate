@@ -10,8 +10,8 @@
 
 
         <item name="colorControlActivated">@color/colorAccentLighter</item>
-        <item name="colorControlNormal">@color/primary_dark</item>
-        <item name="colorControlHighlight">@color/accent</item>
+        <item name="colorControlNormal">@color/colorPrimaryDark</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
 
     </style>
 
