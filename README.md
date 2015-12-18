@@ -1,10 +1,10 @@
-Ultimate Android App Template 2
+Ultimate Android App Template [level: Beginner]
 ==========================
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-UltimateAndroidAppTemplate-brightgreen.svg?style=flat)](http://android-arsenal.com/details/3/2781)
 
 
-This is a simple start-template to save you a little time.
+This is a simple start-template to save you a little time. It is **NOT intented for large apps.** but rather for 5-10 screens apps where you don't need an arhitecture class explosion.
 
 
 ![alt text](https://github.com/AndreiD/UltimateAndroidAppTemplate/blob/master/app/the_gif_1.gif "How the app looks 1")
@@ -17,7 +17,8 @@ This is a simple start-template to save you a little time.
 * Copy paste the app folder
 * Copy paste the build.gradle and modify applicationId "com.andrei.template" to your package name
 * Check the compileSdkVersion, and buildToolsVersion to be the latest
-* Run it. Remove the libs that you don't need. Add those that you do. Profit!
+* Run it. See it working in Genymotion.
+* IMPORTANT: Remove the libs that you don't need. Add those that you do. Profit!
 * Star this repository :)
 
 
@@ -37,20 +38,20 @@ dependencies {
     compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
 
-    //----- no app without eventbus :) -----
+    //----- Eventbus -----
     compile 'de.greenrobot:eventbus:2.4.0'
 
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile 'com.android.support:recyclerview-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
 
-    //----- fonts -----
+    //----- Fonts -----
     compile 'uk.co.chrisjenx:calligraphy:2.1.0'
 
-    //----- nice progress bar -----
+    //----- Nice progress bar -----
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
 
-    //----- easy 6.0 permission management -----
+    //----- Easy 6.0 permission management -----
     compile 'com.karumi:dexter:2.1.2'
 
     //----- database -----
@@ -68,7 +69,7 @@ dependencies {
 - Feedback contact by email for feedback / Settings Page with some dummy settings etc.
 - Android 6.0 Permission Management Ready.
 
-#### Need more ?
+#### Need more nice stuff ?
 
 - Google, Facebok, Twitter logins -> https://github.com/AndreiD/FacebookTwitterGoogleLogins
 - A survey lib for your app -> https://github.com/AndreiD/surveylib
