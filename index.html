@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ultimateandroidapptemplate by AndreiD</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Ultimateandroidapptemplate</h1>
+        <p>A ready to use android app template. Powered by Android Annotations Retrofit API ready to be used Picasso for image loading Snackbar, RecyclerView, Pull to Refresh etc. Feedback contact by email for feedback / Settings Page with some dummy settings etc.</p>
+
+        <p class="view"><a href="https://github.com/AndreiD/UltimateAndroidAppTemplate">View the Project on GitHub <small>AndreiD/UltimateAndroidAppTemplate</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/AndreiD/UltimateAndroidAppTemplate/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/AndreiD/UltimateAndroidAppTemplate/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/AndreiD/UltimateAndroidAppTemplate">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="ultimate-android-app-template-2" class="anchor" href="#ultimate-android-app-template-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ultimate Android App Template 2</h1>
+
+<p><a href="http://android-arsenal.com/details/3/2781"><img src="https://img.shields.io/badge/Android%20Arsenal-UltimateAndroidAppTemplate-brightgreen.svg?style=flat" alt="Android Arsenal"></a></p>
+
+<p>This is a simple start-template to save you a little time.</p>
+
+<p><img src="https://github.com/AndreiD/UltimateAndroidAppTemplate/blob/master/app/the_gif_1.gif" alt="alt text" title="How the app looks 1"></p>
+
+<h4>
+<a id="how-to-use-it" class="anchor" href="#how-to-use-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use it:</h4>
+
+<ul>
+<li>Create a new blank android project</li>
+<li>Download the zip file for this project</li>
+<li>Copy paste the app folder</li>
+<li>Copy paste the build.gradle and modify applicationId "com.andrei.template" to your package name</li>
+<li>Check the compileSdkVersion, and buildToolsVersion to be the latest</li>
+<li>Run it. Remove the libs that you don't need. Add those that you do. Profit!</li>
+<li>Star this repository :)</li>
+</ul>
+
+<h4>
+<a id="what-it-contains" class="anchor" href="#what-it-contains" aria-hidden="true"><span class="octicon octicon-link"></span></a>What it contains:</h4>
+
+<pre><code>
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:support-v4:23.1.0'
+    compile 'com.android.support:support-annotations:23.1.0'
+
+    //----- REST -----
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
+
+    //----- no app without eventbus :) -----
+    compile 'de.greenrobot:eventbus:2.4.0'
+
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    compile 'com.android.support:recyclerview-v7:23.1.0'
+    compile 'com.android.support:design:23.1.0'
+
+    //----- fonts -----
+    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
+
+    //----- nice progress bar -----
+    compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+
+    //----- easy 6.0 permission management -----
+    compile 'com.karumi:dexter:2.1.2'
+
+    //----- database -----
+    compile 'de.greenrobot:greendao:2.0.0'
+    compile 'de.greenrobot:greendao-generator:2.0.0'
+}
+
+</code></pre>
+
+<ul>
+<li>Powered by Android Annotations</li>
+<li>Retrofit API ready to be used</li>
+<li>Glide for image loading</li>
+<li>GreenDao for database</li>
+<li>RecyclerView, Pull to Refresh etc.</li>
+<li>Feedback contact by email for feedback / Settings Page with some dummy settings etc.</li>
+<li>Android 6.0 Permission Management Ready.</li>
+</ul>
+
+<h4>
+<a id="need-more-" class="anchor" href="#need-more-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Need more ?</h4>
+
+<ul>
+<li>Google, Facebok, Twitter logins -&gt; <a href="https://github.com/AndreiD/FacebookTwitterGoogleLogins">https://github.com/AndreiD/FacebookTwitterGoogleLogins</a>
+</li>
+<li>A survey lib for your app -&gt; <a href="https://github.com/AndreiD/surveylib">https://github.com/AndreiD/surveylib</a>
+</li>
+</ul>
+
+<h4>
+<a id="updates-questions-and-requests" class="anchor" href="#updates-questions-and-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Updates, Questions, and Requests</h4>
+
+<p>Ping me here :)</p>
+
+<h4>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO://</h4>
+
+<ul>
+<li>login forms</li>
+<li>test cases</li>
+</ul>
+
+<h4>
+<a id="you-like-this-library--check" class="anchor" href="#you-like-this-library--check" aria-hidden="true"><span class="octicon octicon-link"></span></a>You like this library ? Check</h4>
+
+<ul>
+<li>
+<a href="https://github.com/AndreiD/surveylib">https://github.com/AndreiD/surveylib</a> - A very good looking survey library</li>
+<li>
+<a href="https://github.com/AndreiD/TSnackBar">https://github.com/AndreiD/TSnackBar</a> Snackbar from the top</li>
+</ul>
+
+<h4>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h4>
+
+<pre><code>Copyright 2015 AndroidAdvance.com
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/AndreiD">AndreiD</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
