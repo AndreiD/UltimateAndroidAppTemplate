@@ -1,8 +1,8 @@
 package com.andrei.template;
 
 public class Constants {
+  private Constants() {
+  }
 
-    public static String BASE_URL = "https://wtfismyip.com";
-
-
+  public static final String WHAT_EVER = "https://wtfismyip.com";
 }

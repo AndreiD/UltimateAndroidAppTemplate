@@ -4,20 +4,17 @@ Ultimate Android App Template [level: Beginner]
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-UltimateAndroidAppTemplate-brightgreen.svg?style=flat)](http://android-arsenal.com/details/3/2781)
 
 
-This is a simple start-template to save you a little time. It is **NOT intented for large apps.** but rather for 5-10 screens apps where you don't need an arhitecture class explosion.
-
-
-![alt text](https://github.com/AndreiD/UltimateAndroidAppTemplate/blob/master/app/the_gif_1.gif "How the app looks 1")
+This is a simple start-template to save you a little time.
 
 
 #### How to use it:
 
-* Create a new blank android project
+* Create a new blank android project or clone this repo
 * Download the zip file for this project
 * Copy paste the app folder
 * Copy paste the build.gradle and modify applicationId "com.andrei.template" to your package name
 * Check the compileSdkVersion, and buildToolsVersion to be the latest
-* Run it. See it working in Genymotion.
+* Run it and see that it's working on your emulator.
 * IMPORTANT: Remove the libs that you don't need. Add those that you do. Profit!
 * Star this repository :)
 
@@ -26,48 +23,43 @@ This is a simple start-template to save you a little time. It is **NOT intented 
 
 ~~~~
 
-dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    apt "org.androidannotations:androidannotations:$AAVersion"
-    compile "org.androidannotations:androidannotations-api:$AAVersion"
-    compile 'com.android.support:appcompat-v7:23.0.1'
-    compile 'com.android.support:support-v4:23.1.0'
-    compile 'com.android.support:support-annotations:23.1.0'
+ //----- Support Libs
+  compile 'com.android.support:appcompat-v7:23.1.1'
+  compile "com.android.support:design:23.1.1"
+  compile "com.android.support:recyclerview-v7:23.1.1"
+  compile "com.android.support:cardview-v7:23.1.1"
 
-    //----- REST -----
-    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
-    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
+  //----- EventBus
+  compile 'de.greenrobot:eventbus:2.4.0'
 
-    //----- Eventbus -----
-    compile 'de.greenrobot:eventbus:2.4.0'
+  //----- Retrofit
+  compile "com.squareup.retrofit:retrofit:2.0.0-beta2"
+  compile "com.squareup.retrofit:converter-gson:2.0.0-beta2"
+  compile "com.squareup.retrofit:adapter-rxjava:2.0.0-beta2"
+  compile 'com.squareup.okhttp:logging-interceptor:2.6.0'
 
-    compile 'com.github.bumptech.glide:glide:3.6.1'
-    compile 'com.android.support:recyclerview-v7:23.1.0'
-    compile 'com.android.support:design:23.1.0'
+  //----- Timber
+  compile 'com.jakewharton.timber:timber:4.1.0'
 
-    //----- Fonts -----
-    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
+  //----- Picasso
+  compile 'com.squareup.picasso:picasso:2.5.2'
 
-    //----- Nice progress bar -----
-    compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+  //----- Annotations
+  compile 'org.glassfish:javax.annotation:10.0-b28'
 
-    //----- Easy 6.0 permission management -----
-    compile 'com.karumi:dexter:2.1.2'
+  //---- database
+  apt 'com.github.Raizlabs.DBFlow:dbflow-processor:3.0.0-beta1'
+  compile "com.github.Raizlabs.DBFlow:dbflow-core:3.0.0-beta1"
+  compile "com.github.Raizlabs.DBFlow:dbflow:3.0.0-beta1"
 
-    //----- database -----
-    compile 'de.greenrobot:greendao:2.0.0'
-    compile 'de.greenrobot:greendao-generator:2.0.0'
-}
+  //----- Testing
+  androidTestCompile 'com.android.support:support-annotations:23.0.1'
+  androidTestCompile 'com.android.support.test:runner:0.4.1'
+  androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
+  androidTestCompile 'org.hamcrest:hamcrest-integration:1.3'
 
 ~~~~
 
-- Powered by Android Annotations
-- Retrofit API ready to be used
-- Glide for image loading
-- GreenDao for database
-- RecyclerView, Pull to Refresh etc.
-- Feedback contact by email for feedback / Settings Page with some dummy settings etc.
-- Android 6.0 Permission Management Ready.
 
 #### Need more nice stuff ?
 
@@ -79,15 +71,9 @@ dependencies {
 Ping me here :)
 
 
-#### TODO://
-
-* login forms
-* test cases
-
-#### You like this library ? Check
+#### You like this project ? Check
 - https://github.com/AndreiD/surveylib - A very good looking survey library
 - https://github.com/AndreiD/TSnackBar Snackbar from the top
-
 
 
 #### License

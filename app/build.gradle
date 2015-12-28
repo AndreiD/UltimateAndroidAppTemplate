@@ -1,126 +1,122 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.5.0'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-    }
-}
-
-repositories {
-    mavenCentral()
-    mavenLocal()
-}
-
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
-def AAVersion = '3.3.2'
+apply plugin: 'me.tatarka.retrolambda'
 
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+  compileSdkVersion 23
+  buildToolsVersion '23.0.2'
 
-    dexOptions {
-        incremental true
-    }
+  dexOptions {
+    incremental true
+  }
 
-    productFlavors {
-        dev {
-            minSdkVersion 22
-        }
-        prod {
-            minSdkVersion 15
-        }
+  productFlavors {
+    dev {
+      minSdkVersion 22
     }
+    prod {
+      minSdkVersion 15
+    }
+  }
 
-    signingConfigs {
-        config {
-            keyAlias 'appcert.key'
-            keyPassword 'password'
-            storeFile file('location...')
-            storePassword 'password'
-        }
+  signingConfigs {
+    config {
+      keyAlias 'appcert.key'
+      keyPassword 'password'
+      storeFile file('location...')
+      storePassword 'password'
     }
+  }
 
-    defaultConfig {
-        applicationId "com.andrei.template"
-        minSdkVersion 22
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+  defaultConfig {
+    applicationId "com.andrei.template"
+    minSdkVersion 22
+    targetSdkVersion 23
+    versionCode 1
+    versionName "1.0"
+  }
+  buildTypes {
+    release {
+      signingConfig signingConfigs.config
+      minifyEnabled true
+      shrinkResources true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-    buildTypes {
-        release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
-        }
-        debug{
-            minifyEnabled false
-        }
+    debug {
+      minifyEnabled false
+      versionNameSuffix " Debug"
     }
+  }
 
-    packagingOptions{
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/DEPENDENCIES.txt'
-        exclude 'allclasses-frame.html'
-        exclude 'allclasses-noframe.html'
-        exclude 'constant-values.html'
-        exclude 'deprecated-list.html'
-        exclude 'help-doc.html'
-        exclude 'index-all.html'
-        exclude 'index.html'
-    }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
 
-    lintOptions {
-        abortOnError false
-    }
-}
+  packagingOptions {
+    exclude 'META-INF/DEPENDENCIES'
+    exclude 'LICENSE.txt'
+    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/LICENSE.txt'
+    exclude 'META-INF/NOTICE'
+    exclude 'LICENSE.txt'
+  }
 
+  lintOptions {
+    warning 'InvalidPackage'
+    abortOnError false
+  }
 
-apt {
-    arguments {
-        androidManifestFile variant.outputs[0].processResources.manifestFile
+  //needed if for espresso
+  configurations.all {
+    resolutionStrategy {
+      force 'com.android.support:support-annotations:23.0.1'
     }
+  }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    apt "org.androidannotations:androidannotations:$AAVersion"
-    compile "org.androidannotations:androidannotations-api:$AAVersion"
-    compile 'com.android.support:appcompat-v7:23.0.1'
-    compile 'com.android.support:support-v4:23.1.0'
-    compile 'com.android.support:support-annotations:23.1.0'
+  compile fileTree(include: ['*.jar'], dir: 'libs')
 
-    //----- for REST stuff
-    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
-    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
+  //----- Support Libs
+  compile 'com.android.support:appcompat-v7:23.1.1'
+  compile "com.android.support:design:23.1.1"
+  compile "com.android.support:recyclerview-v7:23.1.1"
+  compile "com.android.support:cardview-v7:23.1.1"
 
-    //--- no app without eventbuss :)
-    compile 'de.greenrobot:eventbus:2.4.0'
+  //----- EventBus
+  compile 'de.greenrobot:eventbus:2.4.0'
 
-    compile 'com.github.bumptech.glide:glide:3.6.1'
-    compile 'com.android.support:recyclerview-v7:23.1.0'
-    compile 'com.android.support:design:23.1.0'
+  //----- Retrofit
+  compile "com.squareup.retrofit:retrofit:2.0.0-beta2"
+  compile "com.squareup.retrofit:converter-gson:2.0.0-beta2"
+  compile "com.squareup.retrofit:adapter-rxjava:2.0.0-beta2"
+  compile 'com.squareup.okhttp:logging-interceptor:2.6.0'
 
-    //-------- app fonts -----------
-    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
+  //----- Timber
+  compile 'com.jakewharton.timber:timber:4.1.0'
 
-    //----- nice progress app ----
-    compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+  //----- Picasso
+  compile 'com.squareup.picasso:picasso:2.5.2'
 
-    //---- easy permission management
-    compile 'com.karumi:dexter:2.1.2'
+  //----- Annotations
+  compile 'org.glassfish:javax.annotation:10.0-b28'
 
-    //---- database
-    compile 'de.greenrobot:greendao:2.0.0'
-    compile 'de.greenrobot:greendao-generator:2.0.0'
+  //---- database
+  apt 'com.github.Raizlabs.DBFlow:dbflow-processor:3.0.0-beta1'
+  compile "com.github.Raizlabs.DBFlow:dbflow-core:3.0.0-beta1"
+  compile "com.github.Raizlabs.DBFlow:dbflow:3.0.0-beta1"
 
+  //----- Testing
+  androidTestCompile 'com.android.support:support-annotations:23.0.1'
+  androidTestCompile 'com.android.support.test:runner:0.4.1'
+  androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
+  androidTestCompile 'org.hamcrest:hamcrest-integration:1.3'
+}
+
+task clean(type: Exec) {
+  ext.lockhunter = '\"C:\\Program Files\\LockHunter\\LockHunter.exe"'
+  def buildDir = file(new File("build"))
+  commandLine 'cmd', "$lockhunter", '/delete', '/silent', buildDir
 }

@@ -12,6 +12,8 @@
     <color name="appcolor_yellow">#E0E4CC</color>
 
 
+    <color name="error_background">#F38630</color>
+
     <color name="colorPrimary">@color/appcolor_darkgrey</color>
     <color name="colorPrimaryDark">#313131</color>
     <color name="colorAccent">@color/appcolor_blue</color>

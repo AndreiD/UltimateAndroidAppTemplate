@@ -61,7 +61,7 @@ public class SplashActivity extends MyBaseActivity {
             //------ nice animation. Here you should load something from a webservice etc. etc. or something else time taking...
             Animation fadeOut = new AlphaAnimation(1, 0);
             fadeOut.setInterpolator(new AccelerateInterpolator());
-            fadeOut.setDuration(1000);
+            fadeOut.setDuration(500);
             imageView_logo.startAnimation(fadeOut);
             fadeOut.setAnimationListener(new Animation.AnimationListener() {
                 @Override
@@ -71,7 +71,7 @@ public class SplashActivity extends MyBaseActivity {
                 @Override
                 public void onAnimationEnd(Animation animation) {
                     imageView_logo.setVisibility(View.INVISIBLE);
-                    startActivity(new Intent(mContext,MainActivity_.class));
+                    startActivity(new Intent(mContext,MainActivity.class));
                     overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                 }
 

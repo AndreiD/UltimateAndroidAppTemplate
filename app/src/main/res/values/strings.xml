@@ -19,20 +19,7 @@
     <string name="about">About</string>
     <string name="settings">Settings</string>
     <string name="icon_by">Splash Icon by Vitor Fernandes https://thenounproject.com/vitoroffffff/</string>
-    <string name="ask_for_camera_permission_button">Camera</string>
-    <string name="ask_for_contacts_permission_button">Contacts</string>
-    <string name="ask_for_audio_permission_button">Audio</string>
-    <string name="ask_for_all_permissions_button">Request all</string>
-    <string name="permission_granted_feedback">GRANTED</string>
-    <string name="permission_denied_feedback">DENIED</string>
-    <string name="permission_permanently_denied_feedback">PERMANENTLY DENIED</string>
-    <string name="permission_unknown_feedback">UNKNOWN</string>
-    <string name="all_permissions_denied_feedback">All those permissions are needed for doing some magic</string>
-    <string name="camera_permission_denied_feedback">Camera permission is needed for doing some magic</string>
-    <string name="contacts_permission_denied_feedback">Contacts permission is needed for doing some magic</string>
-    <string name="audio_permission_denied_dialog_title">Audio permission request</string>
-    <string name="audio_permission_denied_dialog_feedback">Audio recording will not be available until you accept the permission request</string>
-    <string name="permission_rationale_title">We need this permission</string>
-    <string name="permission_rationale_message">This permission is needed for doing some fancy stuff so please, allow it!</string>
-    <string name="permission_rationale_settings_button_text">SETTINGS</string>
+    <string name="dialog_action_ok">OK</string>
+    <string name="dialog_error_title">Error</string>
+    <string name="dialog_general_error_message">A general error has occured.</string>
 </resources>
