@@ -3,9 +3,7 @@ Ultimate Android App Template [level: Beginner]
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-UltimateAndroidAppTemplate-brightgreen.svg?style=flat)](http://android-arsenal.com/details/3/2781)
 
-
 This is a simple start-template to save you a little time.
-
 
 #### How to use it:
 
@@ -59,6 +57,10 @@ This is a simple start-template to save you a little time.
   androidTestCompile 'org.hamcrest:hamcrest-integration:1.3'
 
 ~~~~
+
+#### Too simple? MVP Arhitecture/RxJava/Database Template ?
+
+[Check UltimateAndroidTemplateRx](https://github.com/AndreiD/UltimateAndroidTemplateRx)
 
 
 #### Need more nice stuff ?
