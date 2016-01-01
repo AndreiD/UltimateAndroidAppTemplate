@@ -13,7 +13,7 @@ android {
 
   productFlavors {
     dev {
-      minSdkVersion 22
+      minSdkVersion 15
     }
     prod {
       minSdkVersion 15
@@ -31,7 +31,7 @@ android {
 
   defaultConfig {
     applicationId "com.andrei.template"
-    minSdkVersion 22
+    minSdkVersion 15
     targetSdkVersion 23
     versionCode 1
     versionName "1.0"
@@ -94,6 +94,9 @@ dependencies {
   compile "com.squareup.retrofit:adapter-rxjava:2.0.0-beta2"
   compile 'com.squareup.okhttp:logging-interceptor:2.6.0'
 
+  //----- Butterknife
+  compile "com.jakewharton:butterknife:7.0.1"
+
   //----- Timber
   compile 'com.jakewharton.timber:timber:4.1.0'
 
@@ -102,11 +105,6 @@ dependencies {
 
   //----- Annotations
   compile 'org.glassfish:javax.annotation:10.0-b28'
-
-  //---- database
-  apt 'com.github.Raizlabs.DBFlow:dbflow-processor:3.0.0-beta1'
-  compile "com.github.Raizlabs.DBFlow:dbflow-core:3.0.0-beta1"
-  compile "com.github.Raizlabs.DBFlow:dbflow:3.0.0-beta1"
 
   //----- Testing
   androidTestCompile 'com.android.support:support-annotations:23.0.1'

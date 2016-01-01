@@ -500,23 +500,23 @@ public class DUtils {
      * ().getAbsolutePath());
      * ************************************************************************************************
      */
-    public static int TotalMemory() {
+    public static long TotalMemory() {
         StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getAbsolutePath());
-        int Total = (statFs.getBlockCount() * statFs.getBlockSize()) / 1048576;
+        long Total = (statFs.getBlockCountLong() * statFs.getBlockSize()) / 1048576;
         return Total;
     }
 
-    public static int FreeMemory() {
+    public static long FreeMemory() {
         StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getAbsolutePath());
-        int Free = (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1048576;
+        long Free = (statFs.getAvailableBlocksLong() * statFs.getBlockSize()) / 1048576;
         return Free;
     }
 
-    public static int BusyMemory() {
+    public static long BusyMemory() {
         StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getAbsolutePath());
-        int Total = (statFs.getBlockCount() * statFs.getBlockSize()) / 1048576;
-        int Free = (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1048576;
-        int Busy = Total - Free;
+        long Total = (statFs.getBlockCountLong() * statFs.getBlockSizeLong()) / 1048576;
+        long Free = (statFs.getAvailableBlocksLong() * statFs.getBlockSizeLong()) / 1048576;
+        long Busy = Total - Free;
         return Busy;
     }
 

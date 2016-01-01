@@ -1,58 +1,82 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat">
+    <!-- Customize your theme here. -->
 
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorPrimary">@color/app_window_bglight_color</item>
+    <item name="colorPrimaryDark">@color/app_window_bglight_color</item>
+    <item name="colorAccent">@color/app_window_bglight_color</item>
+    <item name="android:windowBackground">@color/app_window_bglight_color</item>
 
-
-        <item name="colorControlActivated">@color/colorAccentLighter</item>
-        <item name="colorControlNormal">@color/colorPrimaryDark</item>
-        <item name="colorControlHighlight">@color/colorAccent</item>
-
-    </style>
-
-    <style name="SeekBarDanTheme" parent="android:Widget.SeekBar">
-
-        <item name="android:minHeight">13dip</item>
-        <item name="android:maxHeight">13dip</item>
-        <item name="android:thumbOffset">16dip</item>
-        <item name="android:paddingLeft">16dip</item>
-        <item name="android:paddingRight">16dip</item>
-
-    </style>
+    <item name="colorControlActivated">@color/app_base</item>
+    <item name="colorControlNormal">@color/app_text_unimportant</item>
+    <item name="colorControlHighlight">@color/appcolor_light_grey</item>
 
 
-    <style name="FullScreen" parent="@style/Theme.AppCompat.Light">
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
+    <item name="android:textColor">@color/app_text_label</item>
 
 
-    <style name="CustomDialogTheme" parent="@android:style/Theme.Translucent">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:backgroundDimEnabled">true</item>
-        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
 
-    </style>
+    <item name="alertDialogTheme">@style/AppCompatAlertDialogStyle</item>
 
-    <style name="FabStyle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">16dp</item>
-        <item name="android:src">@drawable/ic_clock</item>
-        <item name="borderWidth">0dp</item>
-        <item name="elevation">6dp</item>
-        <item name="pressedTranslationZ">12dp</item>
-        <item name="rippleColor">@android:color/white</item>
-    </style>
+  </style>
+
+  <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Dialog.Alert">
+    <item name="colorAccent">@color/white</item>
+    <item name="android:textColorPrimary">@color/app_text_unimportant</item>
+    <item name="android:background">@color/app_window_bglight_color</item>
+  </style>
+
+  <style name="AppCompatAlertDialogErrorStyle" parent="Theme.AppCompat.Dialog.Alert">
+    <item name="colorAccent">@color/white</item>
+    <item name="android:textColorPrimary">@color/material_red</item>
+    <item name="android:background">@color/app_window_bglight_color</item>
+  </style>
+
+  <style name="ImportantText" parent="@android:style/Widget.TextView">
+    <item name="android:background">@color/white</item>
+    <item name="android:textColor">@color/app_text_unimportant</item>
+    <item name="android:paddingLeft">4dp</item>
+    <item name="android:paddingRight">4dp</item>
+    <item name="android:paddingTop">2dp</item>
+    <item name="android:paddingBottom">2dp</item>
+  </style>
+
+  <style name="FullScreen" parent="@style/Theme.AppCompat">
+    <item name="windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+  </style>
+
+
+  <style name="AppTheme.Icon">
+    <item name="android:layout_margin">10dp</item>
+  </style>
+
+  <style name="AppTheme.Icon.Small">
+    <item name="android:layout_width">48dp</item>
+    <item name="android:layout_height">48dp</item>
+
+  </style>
+
+  <style name="AppTheme.Icon.Medium">
+    <item name="android:layout_width">84dp</item>
+    <item name="android:layout_margin">2dp</item>
+    <item name="android:layout_height">84dp</item>
+  </style>
+
+
+  <style name="AppTheme.Icon.Big">
+    <item name="android:layout_width">150dp</item>
+    <item name="android:layout_height">150dp</item>
+  </style>
+
+  <style name="AppTheme.Icon.Medium.Scaled" parent="AppTheme.Icon.Medium">
+    <item name="android:alpha">0</item>
+    <item name="android:scaleX">0.5</item>
+    <item name="android:scaleY">0.5</item>
+  </style>
 
 </resources>

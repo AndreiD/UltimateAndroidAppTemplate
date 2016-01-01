@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:id="@+id/relayout_main"
     android:layout_height="match_parent"
     >
 
@@ -9,13 +10,156 @@
       android:id="@+id/textView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_alignParentTop="true"
-      android:layout_centerHorizontal="true"
-      android:layout_marginTop="77dp"
-      android:text="Hello."
-      android:textColor="@color/colorAccent"
+      android:layout_marginTop="25dp"
+      android:text="soil"
       android:textSize="25sp"
+      android:layout_alignParentTop="true"
+      android:layout_alignStart="@+id/linearLayout3"
+      android:textColor="@color/app_base"
       />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout2"
+        >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Dialog"
+            android:id="@+id/button_dialog"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="snackbar"
+            android:id="@+id/button_snackbar"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout"
+        >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="e. dialog"
+            android:id="@+id/button_edialog"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="e snackbar"
+            android:id="@+id/button_esnackbar"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_margin="16dp"
+        android:id="@+id/linearLayout3"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New CheckBox"
+            android:id="@+id/checkBox"
+            android:layout_below="@+id/editText"
+            android:layout_alignParentStart="true"
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:indeterminate="true"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar"
+            android:layout_below="@+id/progressBar"
+            android:layout_alignParentEnd="true"
+            android:max="100"
+            android:progress="50"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is not an important text"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="rendered data solution"
+        android:id="@+id/textView3"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignEnd="@+id/linearLayout3"
+        android:background="@drawable/important_text"
+        android:textColor="@color/app_text_unimportant"
+        />
 
 
 </RelativeLayout>

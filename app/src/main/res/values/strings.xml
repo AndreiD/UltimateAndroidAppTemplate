@@ -20,6 +20,7 @@
     <string name="settings">Settings</string>
     <string name="icon_by">Splash Icon by Vitor Fernandes https://thenounproject.com/vitoroffffff/</string>
     <string name="dialog_action_ok">OK</string>
-    <string name="dialog_error_title">Error</string>
+    <string name="generic_error_title">Error</string>
     <string name="dialog_general_error_message">A general error has occured.</string>
+    <string name="second_activity">Second activity</string>
 </resources>

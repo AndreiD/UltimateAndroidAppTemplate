@@ -6,11 +6,11 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.TextView;
 import com.andrei.template.R;
-import retrofit.HttpException;
 
 public final class DialogFactory {
 
@@ -20,7 +20,7 @@ public final class DialogFactory {
   }
 
   public static Dialog createGenericErrorDialog(Context context, String message) {
-    AlertDialog.Builder alertDialog = new AlertDialog.Builder(context).setTitle(context.getString(R.string.dialog_error_title)).setMessage(message).setNeutralButton(R.string.dialog_action_ok, null);
+    AlertDialog.Builder alertDialog = new AlertDialog.Builder(context, R.style.AppCompatAlertDialogErrorStyle).setTitle(context.getString(R.string.generic_error_title)).setMessage(message).setNeutralButton(R.string.dialog_action_ok, null);
     return alertDialog.create();
   }
 
@@ -43,7 +43,7 @@ public final class DialogFactory {
     Snackbar snack_error = Snackbar.make(rootView, throwable.getLocalizedMessage(), Snackbar.LENGTH_LONG);
     View view = snack_error.getView();
     TextView tv = (TextView) view.findViewById(android.support.design.R.id.snackbar_text);
-    tv.setTextColor(mContext.getResources().getColor(R.color.error_background));
+    tv.setTextColor(ContextCompat.getColor(mContext, R.color.material_red));
     return snack_error;
   }
 }

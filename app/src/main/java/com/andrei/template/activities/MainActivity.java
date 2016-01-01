@@ -1,25 +1,54 @@
 package com.andrei.template.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import com.andrei.template.MyBaseActivity;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import com.andrei.template.BaseActivity;
 import com.andrei.template.R;
+import com.andrei.template.utils.DialogFactory;
 
-public class MainActivity extends MyBaseActivity {
+public class MainActivity extends BaseActivity {
+
+  @Bind(R.id.button_dialog) Button button_dialog;
+  @Bind(R.id.button_snackbar) Button button_snackbar;
+  @Bind(R.id.button_edialog) Button button_edialog;
+  @Bind(R.id.button_esnackbar) Button button_esnackbar;
+  @Bind(R.id.relayout_main) RelativeLayout relayout_main;
 
   private MainActivity mContext;
-
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_main);
+    ButterKnife.bind(this);
+
+    getSupportActionBar().setElevation(0);
     mContext = MainActivity.this;
+  }
 
+  @OnClick(R.id.button_dialog) public void onClick_button_dialog() {
+    DialogFactory.createSimpleOkDialog(mContext, "this is a title", "hello from normal dialog").show();
+  }
 
+  @OnClick(R.id.button_snackbar) public void onClick_button_snackbar() {
+    Snackbar.make(relayout_main, "Hello from Snackbar", Snackbar.LENGTH_LONG).show();
+  }
+
+  @OnClick(R.id.button_edialog) public void onClick_button_edialog() {
+    DialogFactory.createGenericErrorDialog(mContext, "hello from error dialog").show();
+  }
+
+  @OnClick(R.id.button_esnackbar) public void onClick_button_esnackbar() {
+    DialogFactory.showErrorSnackBar(mContext, relayout_main, new Throwable("hello from error snackbar")).show();
   }
 
   //---------- Menu Items ----------
@@ -33,21 +62,13 @@ public class MainActivity extends MyBaseActivity {
     // Handle item selection
     switch (item.getItemId()) {
       case R.id.action_settings:
-        getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsPreferenceFragment()).addToBackStack("settings").commit();
+        startActivity(new Intent(mContext, SettingsActivity.class));
         return true;
       case R.id.action_exit:
         finish();
         return true;
       default:
         return super.onOptionsItemSelected(item);
-    }
-  }
-
-  @Override public void onBackPressed() {
-    if (getFragmentManager().getBackStackEntryCount() > 0) {
-      getFragmentManager().popBackStack();
-    } else {
-      super.onBackPressed();
     }
   }
 }

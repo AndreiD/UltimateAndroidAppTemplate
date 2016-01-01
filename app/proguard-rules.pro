@@ -1,25 +1,3 @@
-# Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in C:\SDK/tools/proguard/proguard-android.txt
-# You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
-
-# Add any project specific keep options here:
-
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
-
--keep public class AnnotationDatabaseImpl
-
-
-
 -optimizationpasses 5
 -dontusemixedcaseclassnames
 -dontskipnonpubliclibraryclasses
@@ -38,6 +16,25 @@
 -keepclassmembers class * {
     @com.google.inject.Inject <init>(...);
 }
+
+-dontwarn freemarker.**
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}
+
+
+# Retrofit rules
+-dontwarn retrofit.**
+-keep class retrofit.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+
+# OkHttp rules
+-dontwarn okio.**
+-dontwarn com.squareup.okhttp.**
+
+
 # There's no way to keep all @Observes methods, so use the On*Event convention to identify event handlers
 -keepclassmembers class * {
     void *(**On*Event);
@@ -48,12 +45,6 @@
     public <init>(android.content.Context, android.util.AttributeSet, int);
     public void set*(...);
 }
--keep public class roboguice.**
-
--dontwarn retrofit.**
--keep class retrofit.** { *; }
--keepattributes Signature
--keepattributes Exceptions
 
 # For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
 -keepclasseswithmembernames class * {
@@ -97,3 +88,51 @@
     **[] $VALUES;
     public *;
 }
+
+#################### Rx stuff ####################################################
+
+# RxLambda
+-dontwarn java.lang.invoke.*
+
+-dontwarn sun.misc.**
+
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode producerNode;
+}
+
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+
+-keep class rx.schedulers.Schedulers {
+    public static <methods>;
+}
+-keep class rx.schedulers.ImmediateScheduler {
+    public <methods>;
+}
+-keep class rx.schedulers.TestScheduler {
+    public <methods>;
+}
+-keep class rx.schedulers.Schedulers {
+    public static ** test();
+}
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+    long producerIndex;
+    long consumerIndex;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    long producerNode;
+    long consumerNode;
+}
+
+
+#________ OPTIONALS _______
+
+# If you use butterknife.
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
+
