@@ -3,6 +3,7 @@ package com.andrei.template.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,6 +15,8 @@ import butterknife.OnClick;
 import com.andrei.template.BaseActivity;
 import com.andrei.template.R;
 import com.andrei.template.utils.DialogFactory;
+import hotchemi.android.rate.AppRate;
+import hotchemi.android.rate.OnClickButtonListener;
 
 public class MainActivity extends BaseActivity {
 
@@ -33,6 +36,8 @@ public class MainActivity extends BaseActivity {
 
     getSupportActionBar().setElevation(0);
     mContext = MainActivity.this;
+
+    rate_this_app_logic();
   }
 
   @OnClick(R.id.button_dialog) public void onClick_button_dialog() {
@@ -70,6 +75,11 @@ public class MainActivity extends BaseActivity {
       default:
         return super.onOptionsItemSelected(item);
     }
+  }
+
+  private void rate_this_app_logic() {
+    AppRate.with(this).setInstallDays(10).setLaunchTimes(10).setRemindInterval(2).setShowLaterButton(false).setDebug(false).monitor();
+    AppRate.showRateDialogIfMeetsConditions(this);
   }
 }
 
