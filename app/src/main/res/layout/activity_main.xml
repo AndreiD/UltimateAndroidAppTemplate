@@ -12,10 +12,11 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="25dp"
       android:text="soil"
-      android:textSize="25sp"
+      android:textSize="30sp"
       android:layout_alignParentTop="true"
       android:layout_alignStart="@+id/linearLayout3"
       android:textColor="@color/app_base"
+      android:textAppearance="@style/Title"
       />
 
     <LinearLayout

@@ -17,20 +17,32 @@
     <item name="android:textColor">@color/app_text_label</item>
 
 
-
     <item name="alertDialogTheme">@style/AppCompatAlertDialogStyle</item>
 
+
+  </style>
+
+  <style name="Title" parent="android:TextAppearance">
+    <item name="android:textSize">20sp</item>
+    <item name="android:textColor">@color/app_base</item>
+  </style>
+
+  <style name="TitleError" parent="android:TextAppearance">
+    <item name="android:textSize">20sp</item>
+    <item name="android:textColor">@color/material_red</item>
   </style>
 
   <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Dialog.Alert">
     <item name="colorAccent">@color/white</item>
-    <item name="android:textColorPrimary">@color/app_text_unimportant</item>
+    <item name="android:windowTitleStyle">@style/Title</item>
+    <item name="android:textColorPrimary">@color/app_text_label</item>
     <item name="android:background">@color/app_window_bglight_color</item>
   </style>
 
   <style name="AppCompatAlertDialogErrorStyle" parent="Theme.AppCompat.Dialog.Alert">
     <item name="colorAccent">@color/white</item>
-    <item name="android:textColorPrimary">@color/material_red</item>
+    <item name="android:windowTitleStyle">@style/TitleError</item>
+    <item name="android:textColorPrimary">@color/app_text_label</item>
     <item name="android:background">@color/app_window_bglight_color</item>
   </style>
 

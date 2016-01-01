@@ -19,6 +19,7 @@ public class BaseApplication extends Application {
     if (isDebuggable) {
       Timber.plant(new Timber.DebugTree());
     }
+
   }
 
   public Scheduler defaultSubscribeScheduler() {
@@ -32,6 +33,7 @@ public class BaseApplication extends Application {
     super.onLowMemory();
     Timber.e("##### onLowMemory #####");
   }
+
 
   public static BaseApplication get(Context context) {
     return (BaseApplication) context.getApplicationContext();
