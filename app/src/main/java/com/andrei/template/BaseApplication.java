@@ -3,21 +3,24 @@ package com.andrei.template;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import com.socks.library.KLog;
 import rx.Scheduler;
 import rx.schedulers.Schedulers;
-import timber.log.Timber;
 
 public class BaseApplication extends Application {
 
   private Scheduler defaultSubscribeScheduler;
+  private boolean isDebuggable;
 
   @Override public void onCreate() {
     super.onCreate();
 
-    boolean isDebuggable = (0 != (getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
+    isDebuggable = (0 != (getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
 
     if (isDebuggable) {
-      Timber.plant(new Timber.DebugTree());
+      KLog.init(true);
+    }else{
+      KLog.init(false);
     }
 
   }
@@ -29,9 +32,13 @@ public class BaseApplication extends Application {
     return defaultSubscribeScheduler;
   }
 
+  public boolean isDebuggable() {
+    return isDebuggable;
+  }
+
   @Override public void onLowMemory() {
     super.onLowMemory();
-    Timber.e("##### onLowMemory #####");
+    KLog.e("##### onLowMemory #####");
   }
 
 
