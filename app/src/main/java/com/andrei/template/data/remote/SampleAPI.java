@@ -1,5 +1,6 @@
 package com.andrei.template.data.remote;
 
+import com.andrei.template.BuildConfig;
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -22,10 +23,11 @@ public interface SampleAPI {
         okHttpClient_builder.connectTimeout(5, TimeUnit.SECONDS);
         okHttpClient_builder.readTimeout(10, TimeUnit.SECONDS);
 
-        //retrofit debug
-        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
-        okHttpClient_builder.addInterceptor(interceptor);
+        if (BuildConfig.DEBUG) {
+          HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+          interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+          okHttpClient_builder.addInterceptor(interceptor);
+        }
 
         Retrofit retrofit = new Retrofit.Builder().client(okHttpClient_builder.build()).addConverterFactory(GsonConverterFactory.create()).baseUrl(BASE_URL).build();
         service = retrofit.create(SampleAPI.class);
