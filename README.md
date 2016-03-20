@@ -21,23 +21,26 @@ This is a simple start-template to save you a little time.
 
 ~~~~
 
- //----- Support Libs
-  compile 'com.android.support:appcompat-v7:23.1.1'
+   //----- Support Libs
+  compile 'com.android.support:appcompat-v7:23.2.0'
   compile "com.android.support:design:23.1.1"
-  compile "com.android.support:recyclerview-v7:23.1.1"
-  compile "com.android.support:cardview-v7:23.1.1"
+  compile "com.android.support:recyclerview-v7:23.2.0"
+  compile "com.android.support:cardview-v7:23.2.0"
 
   //----- EventBus
-  compile 'de.greenrobot:eventbus:2.4.0'
+  compile 'org.greenrobot:eventbus:3.0.0'
 
   //----- Retrofit
-  compile "com.squareup.retrofit:retrofit:2.0.0-beta2"
-  compile "com.squareup.retrofit:converter-gson:2.0.0-beta2"
-  compile "com.squareup.retrofit:adapter-rxjava:2.0.0-beta2"
-  compile 'com.squareup.okhttp:logging-interceptor:2.6.0'
+  compile 'com.squareup.retrofit2:retrofit:2.0.0'
+  compile "com.squareup.retrofit2:converter-gson:2.0.0"
+  compile "com.squareup.retrofit2:adapter-rxjava:2.0.0"
+  compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
 
-  //----- Timber
-  compile 'com.jakewharton.timber:timber:4.1.0'
+  //----- Butterknife
+  compile "com.jakewharton:butterknife:7.0.1"
+
+  //----- Loggin
+  compile 'com.github.zhaokaiqiang.klog:library:1.3.0'
 
   //----- Picasso
   compile 'com.squareup.picasso:picasso:2.5.2'
@@ -45,13 +48,11 @@ This is a simple start-template to save you a little time.
   //----- Annotations
   compile 'org.glassfish:javax.annotation:10.0-b28'
 
-  //---- database
-  apt 'com.github.Raizlabs.DBFlow:dbflow-processor:3.0.0-beta1'
-  compile "com.github.Raizlabs.DBFlow:dbflow-core:3.0.0-beta1"
-  compile "com.github.Raizlabs.DBFlow:dbflow:3.0.0-beta1"
+  //----- Rating
+  compile 'com.github.hotchemi:android-rate:0.5.6'
 
   //----- Testing
-  androidTestCompile 'com.android.support:support-annotations:23.0.1'
+  androidTestCompile 'com.android.support:support-annotations:23.2.0'
   androidTestCompile 'com.android.support.test:runner:0.4.1'
   androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
   androidTestCompile 'org.hamcrest:hamcrest-integration:1.3'
