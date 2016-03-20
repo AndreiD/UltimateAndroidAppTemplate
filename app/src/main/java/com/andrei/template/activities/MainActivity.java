@@ -15,6 +15,7 @@ import butterknife.OnClick;
 import com.andrei.template.BaseActivity;
 import com.andrei.template.R;
 import com.andrei.template.utils.DialogFactory;
+import com.socks.library.KLog;
 import hotchemi.android.rate.AppRate;
 import hotchemi.android.rate.OnClickButtonListener;
 
@@ -27,9 +28,15 @@ public class MainActivity extends BaseActivity {
   @Bind(R.id.relayout_main) RelativeLayout relayout_main;
 
   private MainActivity mContext;
+  private int mThemeId = -1;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    if (savedInstanceState != null && savedInstanceState.getInt("theme", -1) != -1) {
+      mThemeId = savedInstanceState.getInt("theme");
+      this.setTheme(mThemeId);
+    }
 
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);

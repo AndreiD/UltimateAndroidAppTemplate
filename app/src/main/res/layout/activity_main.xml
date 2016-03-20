@@ -15,8 +15,8 @@
       android:textSize="30sp"
       android:layout_alignParentTop="true"
       android:layout_alignStart="@+id/linearLayout3"
-      android:textColor="@color/app_base"
       android:textAppearance="@style/Title"
+      style="@style/Title"
       />
 
     <LinearLayout
