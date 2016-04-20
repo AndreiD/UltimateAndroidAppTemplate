@@ -20,12 +20,92 @@ This is a simple start-template to save you a little time.
 #### What it contains:
 
 ~~~~
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
 
-   //----- Support Libs
-  compile 'com.android.support:appcompat-v7:23.2.0'
-  compile "com.android.support:design:23.1.1"
-  compile "com.android.support:recyclerview-v7:23.2.0"
-  compile "com.android.support:cardview-v7:23.2.0"
+
+android {
+  compileSdkVersion 23
+  buildToolsVersion '23.0.3'
+
+  dexOptions {
+    incremental true
+  }
+
+  productFlavors {
+    dev {
+      minSdkVersion 22
+    }
+    prod {
+      minSdkVersion 15
+    }
+  }
+
+  signingConfigs {
+    config {
+      keyAlias 'appcert.key'
+      keyPassword 'password'
+      storeFile file('location...')
+      storePassword 'password'
+    }
+  }
+
+  defaultConfig {
+    applicationId "com.andrei.template"
+    minSdkVersion 15
+    targetSdkVersion 23
+    versionCode 1
+    versionName "1.0"
+  }
+  buildTypes {
+    release {
+      signingConfig signingConfigs.config
+      minifyEnabled true
+      shrinkResources true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+    debug {
+      minifyEnabled false
+      versionNameSuffix " Debug"
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  packagingOptions {
+    exclude 'META-INF/DEPENDENCIES'
+    exclude 'LICENSE.txt'
+    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/LICENSE.txt'
+    exclude 'META-INF/NOTICE'
+    exclude 'LICENSE.txt'
+  }
+
+  lintOptions {
+    warning 'InvalidPackage'
+    abortOnError false
+  }
+
+  //needed if for espresso
+  configurations.all {
+    resolutionStrategy {
+      force 'com.android.support:support-annotations:23.0.1'
+    }
+  }
+}
+
+dependencies {
+  compile fileTree(include: ['*.jar'], dir: 'libs')
+
+  //----- Support Libs
+  compile 'com.android.support:appcompat-v7:23.3.0'
+  compile "com.android.support:design:23.3.0"
+  compile "com.android.support:recyclerview-v7:23.3.0"
+  compile "com.android.support:cardview-v7:23.3.0"
 
   //----- EventBus
   compile 'org.greenrobot:eventbus:3.0.0'
@@ -52,10 +132,17 @@ This is a simple start-template to save you a little time.
   compile 'com.github.hotchemi:android-rate:0.5.6'
 
   //----- Testing
-  androidTestCompile 'com.android.support:support-annotations:23.2.0'
+  androidTestCompile 'com.android.support:support-annotations:23.3.0'
   androidTestCompile 'com.android.support.test:runner:0.4.1'
   androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
   androidTestCompile 'org.hamcrest:hamcrest-integration:1.3'
+}
+
+task clean(type: Exec) {
+  ext.lockhunter = '\"C:\\Program Files\\LockHunter\\LockHunter.exe"'
+  def buildDir = file(new File("build"))
+  commandLine 'cmd', "$lockhunter", '/delete', '/silent', buildDir
+}
 
 ~~~~
 
