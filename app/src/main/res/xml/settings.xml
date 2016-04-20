@@ -2,32 +2,26 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-  <PreferenceCategory
-      android:title="@string/settings">
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="prefs_notifications"
+      android:title="Enable Notifications"/>
+
+  <Preference
+      android:key="@string/send_feedback"
+      android:summary="We appreciate your feedback. What did you like or dislike ?"
+      android:title="Send Feedback"/>
 
 
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="prefs_notifications"
-        android:title="Enable Notifications"/>
+  <Preference
+      android:key="version"
+      android:summary="@string/version"
+      android:title="Version"/>
 
-    <Preference
-        android:key="@string/send_feedback"
-        android:summary="We appreciate your feedback. What did you like or dislike ?"
-        android:title="Send Feedback"/>
-
-
-    <Preference
-        android:key="version"
-        android:summary="@string/version"
-        android:title="Version"/>
-
-    <Preference
-        android:key="copyright"
-        android:summary="AndreiD © 2016. All rights reserved."
-        android:title="Copyright"/>
-
-  </PreferenceCategory>
+  <Preference
+      android:key="copyright"
+      android:summary="AndreiD © 2016. All rights reserved."
+      android:title="Copyright"/>
 
 
 </PreferenceScreen>
