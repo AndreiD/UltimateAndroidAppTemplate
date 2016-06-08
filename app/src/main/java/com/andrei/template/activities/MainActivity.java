@@ -33,10 +33,7 @@ public class MainActivity extends BaseActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    if (savedInstanceState != null && savedInstanceState.getInt("theme", -1) != -1) {
-      mThemeId = savedInstanceState.getInt("theme");
-      this.setTheme(mThemeId);
-    }
+
 
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
