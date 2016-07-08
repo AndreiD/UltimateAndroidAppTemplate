@@ -7,6 +7,8 @@ This is a simple start-template to save you a little time.
 
 #### How to use it:
 
+Step 1:
+
 * Create a new blank android project or clone this repo
 * Download the zip file for this project
 * Copy paste the app folder
@@ -16,6 +18,8 @@ This is a simple start-template to save you a little time.
 * IMPORTANT: Remove the libs that you don't need. Add those that you do. Profit!
 * Star this repository :)
 
+Step 2: ???
+Step 3: Profit
 
 #### What it contains:
 
