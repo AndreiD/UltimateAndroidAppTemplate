@@ -2,10 +2,7 @@ package com.andrei.template;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
-import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatDelegate;
 import com.socks.library.KLog;
 import rx.Scheduler;
 import rx.schedulers.Schedulers;
@@ -25,7 +22,6 @@ public class BaseApplication extends Application {
     } else {
       KLog.init(false);
     }
-
   }
 
   public Scheduler defaultSubscribeScheduler() {
