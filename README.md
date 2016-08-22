@@ -189,6 +189,7 @@ Ping me here :)
 
 
 #### You like this project ? Check
+- https://github.com/AndreiD/SimpleChat - Simple Realtime Room Chat in Android.
 - https://github.com/AndreiD/surveylib - A very good looking survey library
 - https://github.com/AndreiD/TSnackBar Snackbar from the top
 
