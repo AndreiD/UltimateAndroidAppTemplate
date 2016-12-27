@@ -16,7 +16,7 @@ Step 1:
 * Check the compileSdkVersion, and buildToolsVersion to be the latest
 * Run it and see that it's working on your emulator.
 * IMPORTANT: Remove the libs that you don't need. Add those that you do. Profit!
-* Star this repository :)
+* Star this repository
 
 Step 2: ???
 Step 3: Profit
