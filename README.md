@@ -7,6 +7,9 @@ Ultimate Android App Template [level: Beginner]
 
 #### How to use it:
 
+CREATE a file caled locale.properties and in it put the location of the android sdk
+ex: sdk.dir=C:\\Users\\admin\\AppData\\Local\\Android\\Sdk
+
 Step 1:
 
 * Create a new blank android project or clone this repo. Add a local.properties with your sdk location.
