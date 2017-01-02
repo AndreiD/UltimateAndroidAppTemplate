@@ -15,7 +15,9 @@ public class SettingsActivity extends AppCompatActivity {
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
+    getFragmentManager().beginTransaction()
+        .replace(android.R.id.content, new MyPreferenceFragment())
+        .commit();
     getSupportActionBar().setElevation(0);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
   }
@@ -36,7 +38,8 @@ public class SettingsActivity extends AppCompatActivity {
 
       Preference version = findPreference("version");
       try {
-        String versionName = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0).versionName;
+        String versionName = getActivity().getPackageManager()
+            .getPackageInfo(getActivity().getPackageName(), 0).versionName;
         version.setSummary(versionName);
       } catch (PackageManager.NameNotFoundException e) {
         e.printStackTrace();
@@ -44,7 +47,8 @@ public class SettingsActivity extends AppCompatActivity {
 
       Preference buttonfeedback = findPreference(getString(R.string.send_feedback));
       buttonfeedback.setOnPreferenceClickListener(preference -> {
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "your_email@gmail.com", null));
+        Intent emailIntent =
+            new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "your_email@gmail.com", null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, this.getString(R.string.app_name) + " Feedback");
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Write your feedback here...");
         startActivity(Intent.createChooser(emailIntent, "Send email..."));
@@ -53,5 +57,4 @@ public class SettingsActivity extends AppCompatActivity {
       });
     }
   }
-
 }

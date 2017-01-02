@@ -17,14 +17,18 @@ import com.androidadvance.topsnackbar.TSnackbar;
 public final class DialogFactory {
 
   public static Dialog createSimpleOkDialog(Context context, String title, String message) {
-    AlertDialog.Builder alertDialog = new AlertDialog.Builder(context).setTitle(title).setMessage(message).setNeutralButton(R.string.dialog_action_ok, null);
+    AlertDialog.Builder alertDialog = new AlertDialog.Builder(context).setTitle(title)
+        .setMessage(message)
+        .setNeutralButton(R.string.dialog_action_ok, null);
     return alertDialog.create();
   }
 
   public static Dialog createGenericErrorDialog(Context context, String message) {
-    AlertDialog.Builder alertDialog = new AlertDialog.Builder(context, R.style.AppCompatAlertDialogErrorStyle).setTitle(context.getString(R.string.generic_error_title))
-        .setMessage(message)
-        .setNeutralButton(R.string.dialog_action_ok, null);
+    AlertDialog.Builder alertDialog =
+        new AlertDialog.Builder(context, R.style.AppCompatAlertDialogErrorStyle).setTitle(
+            context.getString(R.string.generic_error_title))
+            .setMessage(message)
+            .setNeutralButton(R.string.dialog_action_ok, null);
     return alertDialog.create();
   }
 
@@ -34,7 +38,8 @@ public final class DialogFactory {
     return progressDialog;
   }
 
-  public static ProgressDialog createProgressDialog(Context context, @StringRes int messageResource) {
+  public static ProgressDialog createProgressDialog(Context context,
+      @StringRes int messageResource) {
     return createProgressDialog(context, context.getString(messageResource));
   }
 
@@ -43,7 +48,8 @@ public final class DialogFactory {
     if (throwable != null) {
       message = throwable.getLocalizedMessage();
     }
-    TSnackbar snack_error = TSnackbar.make(rootView, throwable.getLocalizedMessage(), TSnackbar.LENGTH_LONG);
+    TSnackbar snack_error =
+        TSnackbar.make(rootView, throwable.getLocalizedMessage(), TSnackbar.LENGTH_LONG);
     View view = snack_error.getView();
     TextView tv = (TextView) view.findViewById(android.support.design.R.id.snackbar_text);
     view.setBackgroundColor(ContextCompat.getColor(mContext, R.color.material_red));

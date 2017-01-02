@@ -144,7 +144,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is not an important text"
+        android:text='based on "The Martian" movie UI Style'
         android:id="@+id/textView2"
         android:layout_below="@+id/textView"
         android:layout_alignStart="@+id/textView"

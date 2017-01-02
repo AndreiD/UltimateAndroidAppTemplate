@@ -1,4 +1,5 @@
 package com.andrei.template;
+
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
@@ -21,7 +22,4 @@ public abstract class BaseActivity extends AppCompatActivity {
       super.onBackPressed();
     }
   }
-
-
-
 }

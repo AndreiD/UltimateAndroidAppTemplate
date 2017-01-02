@@ -43,7 +43,10 @@ public interface SampleAPI {
         Cache cache = new Cache(context.getCacheDir(), cacheSize);
         builder.cache(cache);
 
-        Retrofit retrofit = new Retrofit.Builder().client(builder.build()).addConverterFactory(GsonConverterFactory.create()).baseUrl(BASE_URL).build();
+        Retrofit retrofit = new Retrofit.Builder().client(builder.build())
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BASE_URL)
+            .build();
         service = retrofit.create(SampleAPI.class);
         return service;
       } else {

@@ -7,49 +7,45 @@ import android.content.pm.ResolveInfo;
 
 import java.util.List;
 
-
 // Set badges ... facebook/twitter style. Works on Samsung, don't know about the rest....
 public class SetBadgeAppIcon {
 
-    public static void setBadge(Context context, int count) {
-        String launcherClassName = getLauncherClassName(context);
-        if (launcherClassName == null) {
-            return;
-        }
-
-        try {
-            Intent intent = new Intent("android.intent.action.BADGE_COUNT_UPDATE");
-            intent.putExtra("badge_count", count);
-            intent.putExtra("badge_count_package_name", context.getPackageName());
-            intent.putExtra("badge_count_class_name", launcherClassName);
-            context.sendBroadcast(intent);
-        } catch (Exception ex) {
-        }
-
+  public static void setBadge(Context context, int count) {
+    String launcherClassName = getLauncherClassName(context);
+    if (launcherClassName == null) {
+      return;
     }
 
-    public static String getLauncherClassName(Context context) {
+    try {
+      Intent intent = new Intent("android.intent.action.BADGE_COUNT_UPDATE");
+      intent.putExtra("badge_count", count);
+      intent.putExtra("badge_count_package_name", context.getPackageName());
+      intent.putExtra("badge_count_class_name", launcherClassName);
+      context.sendBroadcast(intent);
+    } catch (Exception ex) {
+    }
+  }
 
-        PackageManager pm = context.getPackageManager();
+  public static String getLauncherClassName(Context context) {
 
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+    PackageManager pm = context.getPackageManager();
 
-        try {
-            List<ResolveInfo> resolveInfos = pm.queryIntentActivities(intent, 0);
-            for (ResolveInfo resolveInfo : resolveInfos) {
-                String pkgName = resolveInfo.activityInfo.applicationInfo.packageName;
-                if (pkgName.equalsIgnoreCase(context.getPackageName())) {
-                    String className = resolveInfo.activityInfo.name;
-                    return className;
-                }
-            }
-        } catch (Exception ex) {
-            return null;
+    Intent intent = new Intent(Intent.ACTION_MAIN);
+    intent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+    try {
+      List<ResolveInfo> resolveInfos = pm.queryIntentActivities(intent, 0);
+      for (ResolveInfo resolveInfo : resolveInfos) {
+        String pkgName = resolveInfo.activityInfo.applicationInfo.packageName;
+        if (pkgName.equalsIgnoreCase(context.getPackageName())) {
+          String className = resolveInfo.activityInfo.name;
+          return className;
         }
-
-        return null;
+      }
+    } catch (Exception ex) {
+      return null;
     }
 
-
+    return null;
+  }
 }

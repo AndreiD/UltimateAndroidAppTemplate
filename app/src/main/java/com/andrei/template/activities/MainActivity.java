@@ -35,11 +35,11 @@ public class MainActivity extends BaseActivity {
 
     getSupportActionBar().setElevation(0);
     mContext = MainActivity.this;
-
   }
 
   @OnClick(R.id.button_dialog) public void onClick_button_dialog() {
-    DialogFactory.createSimpleOkDialog(mContext, "this is a title", "hello from normal dialog").show();
+    DialogFactory.createSimpleOkDialog(mContext, "this is a title", "hello from normal dialog")
+        .show();
   }
 
   @OnClick(R.id.button_snackbar) public void onClick_button_snackbar() {
@@ -51,7 +51,8 @@ public class MainActivity extends BaseActivity {
   }
 
   @OnClick(R.id.button_esnackbar) public void onClick_button_esnackbar() {
-    DialogFactory.showErrorSnackBar(mContext, relayout_main, new Throwable("hello from error tsnackbar")).show();
+    DialogFactory.showErrorSnackBar(mContext, relayout_main,
+        new Throwable("hello from error tsnackbar")).show();
   }
 
   //---------- Menu Items ----------
