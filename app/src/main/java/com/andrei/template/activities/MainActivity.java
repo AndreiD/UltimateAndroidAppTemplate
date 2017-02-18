@@ -11,11 +11,22 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.andrei.template.BaseActivity;
+import com.andrei.template.BaseApplication;
 import com.andrei.template.R;
+import com.andrei.template.data.models.Note;
+import com.andrei.template.data.models.Note_;
 import com.andrei.template.utils.DialogFactory;
 import com.androidadvance.topsnackbar.TSnackbar;
 
 import com.socks.library.KLog;
+import io.objectbox.Box;
+import io.objectbox.BoxStore;
+import io.objectbox.query.Query;
+import java.text.DateFormat;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 public class MainActivity extends BaseActivity {
 
@@ -26,6 +37,9 @@ public class MainActivity extends BaseActivity {
   @BindView(R.id.relayout_main) RelativeLayout relayout_main;
 
   private MainActivity mContext;
+  private Box<Note> notesBox;
+  private Query<Note> notesQuery;
+  private BoxStore boxStore;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -35,11 +49,39 @@ public class MainActivity extends BaseActivity {
 
     getSupportActionBar().setElevation(0);
     mContext = MainActivity.this;
+
+    //example writing and reading from the database
+    boxStore = ((BaseApplication) getApplication()).getBoxStore();
+    notesBox = boxStore.boxFor(Note.class);
+    addNote();
+    listNotes();
+
+
+  }
+
+  private void listNotes() {
+    notesQuery = notesBox.query().order(Note_.text).build();
+    List<Note> notes = notesQuery.find();
+    for (Note n : notes) {
+      KLog.d("Note: " + n.toString());
+    }
+  }
+
+
+  private void addNote() {
+    String noteText = UUID.randomUUID().toString();
+
+    final DateFormat df = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM);
+    String comment = "Added on " + df.format(new Date());
+
+    Note note = new Note(0, noteText, comment, new Date());
+    notesBox.put(note);
+
+    KLog.d("Inserted new note, ID: " + note.getId());
   }
 
   @OnClick(R.id.button_dialog) public void onClick_button_dialog() {
-    DialogFactory.createSimpleOkDialog(mContext, "this is a title", "hello from normal dialog")
-        .show();
+    DialogFactory.createSimpleOkDialog(mContext, "this is a title", "hello from normal dialog").show();
   }
 
   @OnClick(R.id.button_snackbar) public void onClick_button_snackbar() {
@@ -51,8 +93,7 @@ public class MainActivity extends BaseActivity {
   }
 
   @OnClick(R.id.button_esnackbar) public void onClick_button_esnackbar() {
-    DialogFactory.showErrorSnackBar(mContext, relayout_main,
-        new Throwable("hello from error tsnackbar")).show();
+    DialogFactory.showErrorSnackBar(mContext, relayout_main, new Throwable("hello from error tsnackbar")).show();
   }
 
   //---------- Menu Items ----------

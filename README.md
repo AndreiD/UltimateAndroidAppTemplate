@@ -30,24 +30,11 @@ Step 3: Profit
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
-
+apply plugin: 'io.objectbox'
 
 android {
-  compileSdkVersion 24
-  buildToolsVersion '24'
-
-  dexOptions {
-    incremental true
-  }
-
-  productFlavors {
-    dev {
-      minSdkVersion 22
-    }
-    prod {
-      minSdkVersion 15
-    }
-  }
+  compileSdkVersion 25
+  buildToolsVersion "25.0.2"
 
   signingConfigs {
     config {
@@ -60,11 +47,13 @@ android {
 
   defaultConfig {
     applicationId "com.andrei.template"
-    minSdkVersion 15
-    targetSdkVersion 24
+    minSdkVersion 23 //instant run
+    targetSdkVersion 25
     versionCode 1
     versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
+
   buildTypes {
     release {
       signingConfig signingConfigs.config
@@ -109,10 +98,10 @@ dependencies {
   compile fileTree(include: ['*.jar'], dir: 'libs')
 
   //----- Support Libs
-  compile 'com.android.support:appcompat-v7:24.1.1'
-  compile "com.android.support:design:24.1.1"
-  compile "com.android.support:recyclerview-v7:24.1.1"
-  compile "com.android.support:cardview-v7:24.1.1"
+  compile 'com.android.support:appcompat-v7:25.1.1'
+  compile "com.android.support:design:25.1.1"
+  compile "com.android.support:recyclerview-v7:25.1.1"
+  compile "com.android.support:cardview-v7:25.1.1"
 
   //----- Retrofit
   compile 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -121,17 +110,20 @@ dependencies {
   compile 'com.squareup.okhttp3:logging-interceptor:3.4.0'
 
   //----- Logging
-  compile 'com.github.zhaokaiqiang.klog:library:1.5.0'
+  compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
 
   //----- Butterknife
-  compile 'com.jakewharton:butterknife:8.2.1'
-  apt 'com.jakewharton:butterknife-compiler:8.2.1'
+  compile 'com.jakewharton:butterknife:8.4.0'
+  annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
   //----- Picasso
   compile 'com.squareup.picasso:picasso:2.5.2'
 
   //----- My favourite lib
   compile 'com.androidadvance:topsnackbar:1.1.1'
+
+  //----- Database
+  compile 'io.objectbox:objectbox-android:0.9.7'
 
   //-------- WHAT DO YOU NEED ????? -------
 //  //----- EventBus
@@ -163,17 +155,16 @@ dependencies {
 
 //
 //  //----- Testing
-//  androidTestCompile 'com.android.support:support-annotations:24.1.1'
+//  androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+//    exclude group: 'com.android.support', module: 'support-annotations'
+//  })
+//  testCompile 'junit:junit:4.12'
+//  androidTestCompile 'com.android.support:support-annotations:25.1.0'
 //  androidTestCompile 'com.android.support.test:runner:0.5'
 //  androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
 //  androidTestCompile 'org.hamcrest:hamcrest-integration:1.3'
 }
 
-task clean(type: Exec) {
-  ext.lockhunter = '\"C:\\Program Files\\LockHunter\\LockHunter.exe"'
-  def buildDir = file(new File("build"))
-  commandLine 'cmd', "$lockhunter", '/delete', '/silent', buildDir
-}
 ~~~~
 
 #### Too simple? MVP Arhitecture/RxJava/Database Template ?

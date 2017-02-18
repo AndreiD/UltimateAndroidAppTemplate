@@ -3,14 +3,16 @@ package com.andrei.template;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import com.andrei.template.data.models.MyObjectBox;
 import com.socks.library.KLog;
 import rx.Scheduler;
 import rx.schedulers.Schedulers;
-
+import io.objectbox.BoxStore;
 public class BaseApplication extends Application {
 
   private Scheduler defaultSubscribeScheduler;
   private boolean isDebuggable;
+  private static BoxStore boxStore;
 
   @Override public void onCreate() {
     super.onCreate();
@@ -22,6 +24,10 @@ public class BaseApplication extends Application {
     } else {
       KLog.init(false);
     }
+
+    //database init
+    boxStore = MyObjectBox.builder().androidContext(BaseApplication.this).build();
+
   }
 
   public Scheduler defaultSubscribeScheduler() {
@@ -38,6 +44,10 @@ public class BaseApplication extends Application {
   @Override public void onLowMemory() {
     super.onLowMemory();
     KLog.e("##### onLowMemory #####");
+  }
+
+  public BoxStore getBoxStore() {
+    return boxStore;
   }
 
   public static BaseApplication get(Context context) {

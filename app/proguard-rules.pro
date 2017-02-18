@@ -23,6 +23,8 @@
     @butterknife.* <methods>;
 }
 
+# ObjectBox database
+-dontwarn sun.misc.Unsafe
 
 # Retrofit rules
 -dontwarn retrofit.**
