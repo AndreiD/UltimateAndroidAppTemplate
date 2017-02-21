@@ -17,14 +17,11 @@ import com.andrei.template.R;
 import com.andrei.template.data.models.Note;
 import com.andrei.template.data.models.Note_;
 import com.andrei.template.utils.DialogFactory;
-
 import com.socks.library.KLog;
-import es.dmoral.toasty.Toasty;
 import io.objectbox.Box;
 import io.objectbox.BoxStore;
 import io.objectbox.query.Query;
 import java.text.DateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -82,11 +79,15 @@ public class MainActivity extends BaseActivity {
   }
 
   @OnClick(R.id.button_dialog) public void onClick_button_dialog() {
-    Toasty.success(mContext, "Success!", Toast.LENGTH_SHORT, true).show();
+
+    DialogFactory.success_toast(mContext,"All is good!").show();
+
   }
 
   @OnClick(R.id.button_snackbar) public void onClick_button_snackbar() {
-    Toasty.info(mContext, "Here is some info for you.", Toast.LENGTH_SHORT, true).show();
+
+    DialogFactory.loading_toast(mContext,"Loading the thing...").show();
+
   }
 
   @OnClick(R.id.button_edialog) public void onClick_button_edialog() {
@@ -94,7 +95,9 @@ public class MainActivity extends BaseActivity {
   }
 
   @OnClick(R.id.button_esnackbar) public void onClick_button_esnackbar() {
-    Toasty.error(mContext, "This is an error toast.", Toast.LENGTH_SHORT, true).show();
+
+    DialogFactory.error_toast(mContext,"Invalid username or password").show();
+
   }
 
   //---------- Menu Items ----------

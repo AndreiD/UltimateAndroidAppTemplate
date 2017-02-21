@@ -22,6 +22,8 @@
 
   </style>
 
+
+
   <style name="Title" parent="android:TextAppearance">
     <item name="android:textSize">20sp</item>
     <item name="android:textColor">@color/app_base</item>
