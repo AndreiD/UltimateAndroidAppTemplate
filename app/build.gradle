@@ -85,16 +85,16 @@ dependencies {
 
   //----- Butterknife
   compile 'com.jakewharton:butterknife:8.4.0'
-  annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+  apt 'com.jakewharton:butterknife-compiler:8.4.0'
 
   //----- Picasso
   compile 'com.squareup.picasso:picasso:2.5.2'
 
   //----- My favourite lib
-  compile 'com.androidadvance:topsnackbar:1.1.1'
+  compile 'com.github.GrenderG:Toasty:1.1.3'
 
   //----- Database
-  compile 'io.objectbox:objectbox-android:0.9.7'
+  compile 'io.objectbox:objectbox-android:0.9.8-RC5' //put the latest..
 
   //-------- WHAT DO YOU NEED ????? -------
 //  //----- EventBus

@@ -7,6 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -16,9 +17,9 @@ import com.andrei.template.R;
 import com.andrei.template.data.models.Note;
 import com.andrei.template.data.models.Note_;
 import com.andrei.template.utils.DialogFactory;
-import com.androidadvance.topsnackbar.TSnackbar;
 
 import com.socks.library.KLog;
+import es.dmoral.toasty.Toasty;
 import io.objectbox.Box;
 import io.objectbox.BoxStore;
 import io.objectbox.query.Query;
@@ -81,11 +82,11 @@ public class MainActivity extends BaseActivity {
   }
 
   @OnClick(R.id.button_dialog) public void onClick_button_dialog() {
-    DialogFactory.createSimpleOkDialog(mContext, "this is a title", "hello from normal dialog").show();
+    Toasty.success(mContext, "Success!", Toast.LENGTH_SHORT, true).show();
   }
 
   @OnClick(R.id.button_snackbar) public void onClick_button_snackbar() {
-    TSnackbar.make(relayout_main, "Hello from TSnackbar", TSnackbar.LENGTH_LONG).show();
+    Toasty.info(mContext, "Here is some info for you.", Toast.LENGTH_SHORT, true).show();
   }
 
   @OnClick(R.id.button_edialog) public void onClick_button_edialog() {
@@ -93,7 +94,7 @@ public class MainActivity extends BaseActivity {
   }
 
   @OnClick(R.id.button_esnackbar) public void onClick_button_esnackbar() {
-    DialogFactory.showErrorSnackBar(mContext, relayout_main, new Throwable("hello from error tsnackbar")).show();
+    Toasty.error(mContext, "This is an error toast.", Toast.LENGTH_SHORT, true).show();
   }
 
   //---------- Menu Items ----------
