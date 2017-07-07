@@ -41,7 +41,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="snackbar"
+            android:text="popup"
             android:id="@+id/button_snackbar"
             android:layout_alignParentBottom="true"
             android:layout_alignEnd="@+id/textView"

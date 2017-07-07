@@ -1,6 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'io.objectbox'
 
 android {
@@ -69,23 +67,24 @@ dependencies {
   compile fileTree(include: ['*.jar'], dir: 'libs')
 
   //----- Support Libs
-  compile 'com.android.support:appcompat-v7:25.1.1'
-  compile "com.android.support:design:25.1.1"
-  compile "com.android.support:recyclerview-v7:25.1.1"
-  compile "com.android.support:cardview-v7:25.1.1"
+  compile 'com.android.support:appcompat-v7:25.4.0'
+  compile "com.android.support:design:25.4.0"
+  compile "com.android.support:recyclerview-v7:25.4.0"
+  compile "com.android.support:cardview-v7:25.4.0"
+
 
   //----- Retrofit
   compile 'com.squareup.retrofit2:retrofit:2.1.0'
   compile "com.squareup.retrofit2:converter-gson:2.1.0"
   compile "com.squareup.retrofit2:adapter-rxjava:2.1.0"
-  compile 'com.squareup.okhttp3:logging-interceptor:3.4.0'
+  compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
 
   //----- Logging
   compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
 
   //----- Butterknife
-  compile 'com.jakewharton:butterknife:8.4.0'
-  apt 'com.jakewharton:butterknife-compiler:8.4.0'
+  compile "com.jakewharton:butterknife:8.6.0"
+  annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"
 
   //----- Picasso
   compile 'com.squareup.picasso:picasso:2.5.2'
@@ -94,7 +93,7 @@ dependencies {
   compile 'com.muddzdev:styleabletoast:1.0.6'
 
   //----- Database
-  compile 'io.objectbox:objectbox-android:0.9.8-RC5' //put the latest..
+  compile 'io.objectbox:objectbox-android:0.9.12' //put the latest..
 
   //-------- WHAT DO YOU NEED ????? -------
 //  //----- EventBus

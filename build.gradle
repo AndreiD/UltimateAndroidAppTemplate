@@ -3,17 +3,16 @@
 buildscript {
   repositories {
     jcenter()
+    google()
     maven {
       url "http://objectbox.net/beta-repo/"
     }
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:2.2.3'
-    classpath 'me.tatarka:gradle-retrolambda:3.4.0'
-    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    classpath 'com.android.tools.build:gradle:3.0.0-alpha5'
 
     //for the database
-    classpath 'io.objectbox:objectbox-gradle-plugin:0.9.7'
+    classpath 'io.objectbox:objectbox-gradle-plugin:0.9.12.1'
     // NOTE: Do not place your application dependencies here; they belong
     // in the individual module build.gradle files
   }
@@ -22,6 +21,7 @@ buildscript {
 allprojects {
   repositories {
     jcenter()
+    google()
     repositories {
       maven { url "https://jitpack.io" }
     }
