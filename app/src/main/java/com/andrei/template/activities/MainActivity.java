@@ -7,7 +7,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -121,7 +120,7 @@ public class MainActivity extends BaseActivity {
     }
   }
 
-  //delete me if needed...
+  //delete me if not needed... [remember to enable the library from build.gradle (app) file
   //private void rate_this_app_logic() {
   //  AppRate.with(this).setInstallDays(10).setLaunchTimes(10).setRemindInterval(2).setShowLaterButton(false).setDebug(false).monitor();
   //  AppRate.showRateDialogIfMeetsConditions(this);

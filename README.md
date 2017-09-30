@@ -3,7 +3,7 @@ Ultimate Android App Template [level: Beginner]
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-UltimateAndroidAppTemplate-brightgreen.svg?style=flat)](http://android-arsenal.com/details/3/2781)
 
-## This is a simple start-template to save you a little time.
+## This is a simple start-template to save you a little time. It doesn't use dagger // mvp // mvvp or any other stuff that requires an more in depth knowledge of android.
 
 #### How to use it:
 
@@ -12,13 +12,13 @@ ex: sdk.dir=C:\\Users\\admin\\AppData\\Local\\Android\\Sdk
 
 Step 1:
 
-* Create a new blank android project or clone this repo. Add a local.properties with your sdk location.
-* Manual mode: Download the zip file for this project.
+* Fork/Clone this repo. Add a local.properties with your sdk location (it should be automatically done by android studio)
+* or Manual mode: Download the zip file for this project.
 * Copy paste the app folder
 * Copy paste the build.gradle and modify applicationId "com.andrei.template" to your package name
 * Check the compileSdkVersion, and buildToolsVersion to be the latest
 * Run it and see that it's working on your emulator.
-* IMPORTANT: Remove the libs that you don't need. Add those that you do. Profit!
+* IMPORTANT: Remove the libs that you don't need. Add those that you do.
 * Star this repository
 
 Step 2: ???
@@ -28,42 +28,31 @@ Step 3: Profit
 
 ~~~~
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'io.objectbox'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion "25.0.2"
-
-  signingConfigs {
-    config {
-      keyAlias 'appcert.key'
-      keyPassword 'password'
-      storeFile file('location...')
-      storePassword 'password'
-    }
-  }
+  compileSdkVersion 26
+  buildToolsVersion "26.0.1"
 
   defaultConfig {
     applicationId "com.andrei.template"
-    minSdkVersion 23 //instant run
-    targetSdkVersion 25
+    minSdkVersion 23
+    targetSdkVersion 26
     versionCode 1
     versionName "1.0"
+    vectorDrawables.useSupportLibrary = true
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
 
   buildTypes {
     release {
-      signingConfig signingConfigs.config
-      minifyEnabled true
-      shrinkResources true
+      minifyEnabled false
+      shrinkResources false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
     debug {
       minifyEnabled false
-      versionNameSuffix " Debug"
+      versionNameSuffix ".debug"
     }
   }
 
@@ -98,34 +87,46 @@ dependencies {
   compile fileTree(include: ['*.jar'], dir: 'libs')
 
   //----- Support Libs
-  compile 'com.android.support:appcompat-v7:25.1.1'
-  compile "com.android.support:design:25.1.1"
-  compile "com.android.support:recyclerview-v7:25.1.1"
-  compile "com.android.support:cardview-v7:25.1.1"
+  implementation 'com.android.support:appcompat-v7:26.1.0'
+  implementation "com.android.support:design:26.1.0"
+  implementation "com.android.support:recyclerview-v7:26.1.0"
+  implementation "com.android.support:cardview-v7:26.1.0"
+
 
   //----- Retrofit
   compile 'com.squareup.retrofit2:retrofit:2.1.0'
   compile "com.squareup.retrofit2:converter-gson:2.1.0"
   compile "com.squareup.retrofit2:adapter-rxjava:2.1.0"
-  compile 'com.squareup.okhttp3:logging-interceptor:3.4.0'
+  compile 'com.squareup.okhttp3:logging-interceptor:3.7.0'
 
   //----- Logging
   compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
 
   //----- Butterknife
-  compile 'com.jakewharton:butterknife:8.4.0'
-  annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+  compile "com.jakewharton:butterknife:8.6.0"
+  annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"
 
   //----- Picasso
   compile 'com.squareup.picasso:picasso:2.5.2'
 
-  //----- My favourite lib
-  compile 'com.androidadvance:topsnackbar:1.1.1'
+  //----- Dialogs
+  compile 'com.muddzdev:styleabletoast:1.0.6'
 
   //----- Database
-  compile 'io.objectbox:objectbox-android:0.9.7'
+  compile 'io.objectbox:objectbox-android:0.9.12'
 
-  //-------- WHAT DO YOU NEED ????? -------
+  //-------- HERE ARE SOME RECOMMENDED LIBRARIES TO HELP YOU -------
+
+//  //----- Onboarding
+//  compile 'com.codemybrainsout.onboarding:onboarder:1.0.3'
+//
+//  //----- QRCode Scanner
+//  compile 'me.dm7.barcodescanner:zxing:1.9.8'
+//
+//  //----- Navigation Drawer
+//  compile('com.mikepenz:materialdrawer:5.9.5@aar') {
+//    transitive = true
+//  }
 //  //----- EventBus
 //  compile 'org.greenrobot:eventbus:3.0.0'
 //
@@ -138,18 +139,20 @@ dependencies {
 //  //----- Rating
 //  compile 'com.github.hotchemi:android-rate:0.5.6'
 //
-//  //socket library
+//  //------  Socket library
 //  compile 'com.neovisionaries:nv-websocket-client:1.25'
 //
 //  //badges on icons
 //  compile ('com.mikepenz:actionitembadge:3.2.6@aar') {
 //    transitive = true
 //  }
+//  //------ Custom Font
+//  compile 'uk.co.chrisjenx:calligraphy:2.3.0'
 //
-//  //charts
+//  //------ Charts
 //  compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
 //
-//  //calendar
+//  //------ Calendar
 //  compile 'com.squareup:android-times-square:1.6.5@aar'
 //
 
@@ -164,7 +167,6 @@ dependencies {
 //  androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
 //  androidTestCompile 'org.hamcrest:hamcrest-integration:1.3'
 }
-
 ~~~~
 
 #### Too simple? MVP Arhitecture/RxJava/Database Template ?
@@ -191,7 +193,7 @@ Ping me here :)
 #### License
 
 ~~~~
-Copyright 2015 AndroidAdvance.com
+Copyright 2017 AndroidAdvance.com
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
