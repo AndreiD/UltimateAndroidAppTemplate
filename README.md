@@ -5,7 +5,7 @@ Ultimate Android App Template [level: Beginner]
 
 ## This is a simple start-template to save you a little time. It doesn't use dagger // mvp // mvvp or any other stuff that requires an more in depth knowledge of android.
 
-<img alt="how it looks" src="https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/deleteme.gif"/>
+<img style="width:300px" alt="how it looks" src="https://raw.githubusercontent.com/AndreiD/UltimateAndroidAppTemplate/master/deleteme.gif"/>
 
 #### How to use it:
 
