@@ -1,6 +1,13 @@
 Ultimate Android App Template [level: Beginner]
 ==========================
 
+### This app template has moved to Kotlin. I strongly suggest you use Kotlin. Kotlin is a fun, powerful language and you should use it. 
+
+## The repo is this one -> https://github.com/AndreiD/UltimateAndroidAppTemplateKotlin
+
+
+## old stuff, don't use it please.
+
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-UltimateAndroidAppTemplate-brightgreen.svg?style=flat)](http://android-arsenal.com/details/3/2781)
 
 ## This is a simple start-template to save you a little time. It doesn't use dagger // mvp // mvvp or any other stuff that requires an more in depth knowledge of android.
